@@ -746,6 +746,15 @@
       padding: 2rem;
     }
 
+    .modal-skill-intro {
+      font-size: .88rem;
+      line-height: 1.75;
+      color: var(--muted);
+      margin-bottom: 1.6rem;
+      border-left: 2px solid rgba(138, 80, 255, .35);
+      padding-left: .9rem;
+    }
+
     .proj-section {
       margin-bottom: 2.5rem;
     }
@@ -923,8 +932,8 @@
       transform: translateY(-2px);
     }
 
-    /* SERVICES */
-    #services {
+    /* projects */
+    #projects {
       background: var(--bg);
       border-top: 1px solid var(--border);
     }
@@ -981,7 +990,7 @@
       color: var(--muted);
     }
 
-    .services-list {
+    .projects-list {
       display: flex;
       flex-direction: column;
     }
@@ -1575,7 +1584,7 @@
     </button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -1627,7 +1636,7 @@
         content production. Experienced in managing content across multiple platforms and using performance insights to
         improve reach, engagement, and workflow efficiency.</p>
       <div class="hero-actions">
-        <a href="#skills" class="btn-primary">View My Work</a>
+        <a href="#projects" class="btn-primary">View My Work</a>
         <a href="#contact" class="btn-ghost">Get in Touch</a>
       </div>
       <div class="hero-stats">
@@ -1694,12 +1703,12 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section id="services">
+  <!-- projects -->
+  <section id="projects">
     <div class="section-label reveal">MY WORK</div>
     <div class="section-title reveal">FEATURED PROJECTS</div>
     <div class="section-divider reveal"></div>
-    <div class="services-list">
+    <div class="projects-list">
       <div class="service-row reveal" onclick="openModal('podcastproduction')">
         <div class="service-num">01</div>
         <div class="service-content">
@@ -2145,26 +2154,45 @@
     const SKILLS = {
       aftereffects: {
         icon: '🎬', title: 'After Effects',
+        popupNote: 'Motion design and compositing projects focused on cinematic edits, visual polish, and production-ready delivery for brand and content pipelines.',
         sections: [
           {
             title: '🎬 After Effects Work', type: 'cards', items: [
               { icon: '📁', label: 'After Effects Projects', url: 'https://drive.google.com/drive/folders/1pOnrjQTSPYNXoz7F01VKE68tEUkB9RDO?usp=drive_link', desc: 'After Effects project work and related files.' }
+            ]
+          },
+          {
+            title: '💡 What This Includes', type: 'info', items: [
+              'Motion graphics and text animation workflows',
+              'Compositing, cleanup, and stylized transitions',
+              'Template-ready exports for faster publishing',
+              'Platform-optimized versions for reels and shorts'
             ]
           }
         ]
       },
       premiere: {
         icon: '🎞️', title: 'Premiere Pro',
+        popupNote: 'Editing projects centered on storytelling, rhythm, sound balance, and audience-first long/short-form workflows across YouTube and social content.',
         sections: [
           {
             title: '🎬 Premiere Pro Work', type: 'cards', items: [
               { icon: '📁', label: 'Premiere Pro Projects', url: 'https://drive.google.com/drive/folders/1_AynVAJN39sr3ozCzCZgCPcHu3gOvmFS?usp=drive_link', desc: 'Premiere Pro editing work and project files.' }
+            ]
+          },
+          {
+            title: '💡 Editing Focus', type: 'info', items: [
+              'Story-first timeline structuring and pacing',
+              'Dialogue, music, and ambience balancing',
+              'Retention-focused hook and cut decisions',
+              'Clean handoff with organized project files'
             ]
           }
         ]
       },
       vfxcompositing: {
         icon: '🧪', title: 'VFX & Compositing',
+        popupNote: 'Selected VFX reels and compositing showcases highlighting integration quality, shot continuity, and visual finishing.',
         sections: [
           {
             title: '🎥 Related Work Links', type: 'embedsSwitch', items: [
@@ -2176,6 +2204,7 @@
       },
       videoproduction: {
         icon: '🎬', title: 'Video Production & Editing',
+        popupNote: 'End-to-end production work from concept and edit structure to final platform-ready outputs and performance-friendly cuts.',
         sections: [
           {
             title: '🎬 Edited Video Projects', type: 'cards', items: [
@@ -2189,6 +2218,7 @@
       },
       shortformcontent: {
         icon: '🎬', title: 'Short-Form Content & Client Edits',
+        popupNote: 'High-impact short-form edits designed for watch-time, replay value, and stronger audience interaction.',
         sections: [
           {
             title: '🎬 Short-Form Content & Client Edits', type: 'cards', items: [
@@ -2200,6 +2230,7 @@
       },
       contentworkflow: {
         icon: '📊', title: 'Content Workflow Management',
+        popupNote: 'Workflow systems used to plan, schedule, monitor, and improve content execution across teams and platforms.',
         sections: [
           {
             title: '📊 Workflow & Social Content Tracking', type: 'cards', items: [
@@ -2210,6 +2241,7 @@
       },
       creativedirection: {
         icon: '🎯', title: 'Creative Direction',
+        popupNote: 'Creative strategy examples showing concept planning, visual tone setting, and campaign-level direction decisions.',
         sections: [
           {
             title: '🎬 Creative Direction Projects', type: 'cards', items: [
@@ -2221,6 +2253,7 @@
       },
       podcastproduction: {
         icon: '🎙️', title: 'Podcast Production',
+        popupNote: 'Podcast production work including episode structuring, edit quality control, and final publishing-ready formats.',
         sections: [
           {
             title: '🎙 Podcast Projects', type: 'cards', items: [
@@ -2233,6 +2266,7 @@
       },
       contentperformance: {
         icon: '📈', title: 'Content Performance & Workflow Optimization',
+        popupNote: 'Performance and publishing optimization using platform-level observations, consistency tracking, and iterative improvement.',
         sections: [
           {
             title: '🔗 NexNeuro Social Platforms Managed', type: 'platforms', items: [
@@ -2248,6 +2282,7 @@
       },
       narmadanews: {
         icon: '📰', title: 'Narmada News',
+        popupNote: 'News editing archive reflecting speed, turnaround discipline, and consistency in daily publishing workflows.',
         sections: [
           {
             title: '📰 Edited Video Work', type: 'cards', items: [
@@ -2258,6 +2293,7 @@
       },
       nuke: {
         icon: '🧪', title: 'NUKE — VFX Compositing',
+        popupNote: 'Compositing showreel links featuring cleanup, keying, integration, and final shot finishing workflows with production-style node pipelines.',
         sections: [
           {
             title: '🎥 VFX Showreel', type: 'embeds', items: [
@@ -2265,21 +2301,39 @@
               { label: 'Vimeo Showcase - Video 890605660', url: 'https://vimeo.com/showcase/11765729?video=890605660', desc: 'Showcase video link.' },
               { label: 'Vimeo Showcase - Video 676531700', url: 'https://vimeo.com/showcase/11765729?video=676531700', desc: 'Showcase video link.' }
             ]
+          },
+          {
+            title: '💡 Compositing Strengths', type: 'info', items: [
+              'Clean keying and edge treatment for difficult shots',
+              'Layer integration with lighting and depth consistency',
+              'Node-based workflow discipline for revisions',
+              'Final-grade friendly outputs for finishing'
+            ]
           }
         ]
       },
       photoshop: {
         icon: '🎨', title: 'Photoshop',
+        popupNote: 'Design and image-editing projects covering visual assets, creative layouts, and content-ready graphics for social and brand communication.',
         sections: [
           {
             title: '🎨 Photoshop Work', type: 'cards', items: [
               { icon: '📁', label: 'Photoshop Projects', url: 'https://drive.google.com/drive/folders/1Xe1ANtlin47nMfILBUO2mtrHLRkFa_HY?usp=drive_link', desc: 'Photoshop design, edits, and asset files.' }
+            ]
+          },
+          {
+            title: '💡 Design Scope', type: 'info', items: [
+              'Thumbnail and promotional key visual creation',
+              'Photo cleanup, grading, and composition balancing',
+              'Fast variant generation for campaign testing',
+              'Asset export setup for multi-platform posting'
             ]
           }
         ]
       },
       sql: {
         icon: '🧮', title: 'SQL & Data',
+        popupNote: 'Data-focused examples demonstrating tracking structure, reporting logic, and insight-led content decisions for content and operations.',
         sections: [
           {
             title: '📋 Live Work Sample', type: 'cards', items: [
@@ -2298,6 +2352,7 @@
       },
       excel: {
         icon: '📊', title: 'Excel & Operations',
+        popupNote: 'Operational spreadsheets showing planning systems, publishing workflows, and execution tracking in day-to-day practice.',
         sections: [
           {
             title: '📋 Live Spreadsheet', type: 'cards', items: [
@@ -2322,6 +2377,9 @@
       document.getElementById('modalIcon').textContent = d.icon;
       document.getElementById('modalTitle').textContent = d.title;
       let html = '';
+      if (d.popupNote) {
+        html += `<p class="modal-skill-intro">${d.popupNote}</p>`;
+      }
       d.sections.forEach(sec => {
         html += `<div class="proj-section"><div class="proj-section-title">${sec.title}</div>`;
         if (sec.type === 'embeds') {
