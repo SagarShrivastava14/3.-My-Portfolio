@@ -52,20 +52,19 @@
     }
 
     .hero-image-container {
-      position: relative;
-      width: 420px;
-      height: 520px;
+      position: absolute;
+      inset: 0;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 0;
     }
 
     /* Glow background */
     .hero-image-container::before {
       content: "";
       position: absolute;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       background: radial-gradient(circle at 70% 50%, rgba(128, 0, 255, 0.25), transparent 60%);
       filter: blur(40px);
       z-index: 0;
@@ -77,6 +76,8 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
+      object-position: center;
+      display: block;
       z-index: 1;
 
       filter: contrast(1.1) brightness(0.95);
@@ -327,7 +328,7 @@
 
     .hero-photo-wrap {
       position: relative;
-      width: min(400px, 40vw);
+      width: min(520px, 48vw);
     }
 
     .hero-photo-bg {
@@ -346,11 +347,29 @@
     .hero-photo-frame {
       position: relative;
       width: 100%;
-      padding-bottom: 120%;
-      border-radius: 16px 16px 0 0;
+      aspect-ratio: var(--hero-photo-ratio, 4 / 5);
+      border-radius: 20px;
       overflow: hidden;
-      border: 1px solid var(--border);
       background: var(--card);
+      box-shadow: 0 22px 64px rgba(7, 5, 15, .5), 0 0 45px rgba(138, 80, 255, .16);
+    }
+
+    .hero-photo-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border-radius: inherit;
+      background: linear-gradient(145deg, rgba(168, 130, 255, .25) 0%, rgba(168, 130, 255, 0) 35%, rgba(138, 80, 255, .18) 100%);
+      opacity: .55;
+    }
+
+    .hero-photo-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 50%, transparent 66%, rgba(7, 5, 15, .5) 100%);
     }
 
     .hero-photo-placeholder {
@@ -412,6 +431,7 @@
     }
 
     #about {
+      scroll-margin-top: 90px;
       background: var(--surface);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
@@ -1301,9 +1321,9 @@
     <div class="hero-right">
       <div class="hero-photo-wrap">
         <div class="hero-photo-bg"></div>
-        <div class="hero-photo-frame">
+        <div class="hero-photo-frame" id="heroPhotoFrame">
           <div class="hero-image-container">
-            <img src="sagar.png" alt="Sagar" class="hero-img">
+            <img src="sagar.png" alt="Sagar" class="hero-img" id="heroProfileImage">
           </div>
         </div>
       </div>
@@ -1637,6 +1657,21 @@
       });
     }
     addHover('a,button,.skill-card,.service-row,.contact-item,.proj-card,.platform-chip');
+
+    const heroProfileImage = document.getElementById('heroProfileImage');
+    const heroPhotoFrame = document.getElementById('heroPhotoFrame');
+    function syncHeroFrameToImageRatio() {
+      if (!heroProfileImage || !heroPhotoFrame) return;
+      if (!heroProfileImage.naturalWidth || !heroProfileImage.naturalHeight) return;
+      heroPhotoFrame.style.setProperty('--hero-photo-ratio', `${heroProfileImage.naturalWidth} / ${heroProfileImage.naturalHeight}`);
+    }
+    if (heroProfileImage) {
+      if (heroProfileImage.complete) {
+        syncHeroFrameToImageRatio();
+      } else {
+        heroProfileImage.addEventListener('load', syncHeroFrameToImageRatio, { once: true });
+      }
+    }
 
     const observer = new IntersectionObserver(entries => {
       entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 55); observer.unobserve(e.target); } });
