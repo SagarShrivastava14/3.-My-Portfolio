@@ -1186,6 +1186,18 @@
       box-shadow: 0 8px 30px var(--violet-glow);
     }
 
+    .form-note {
+      margin-top: .6rem;
+      font-size: .78rem;
+      line-height: 1.5;
+      color: var(--muted);
+      min-height: 1.2em;
+    }
+
+    .form-note a {
+      color: var(--lavender);
+    }
+
     footer {
       padding: 2.5rem 3rem;
       border-top: 1px solid var(--border);
@@ -1720,25 +1732,24 @@
         </div>
       </div>
       <div class="reveal">
-        <div class="contact-form">
+        <form class="contact-form" id="contactForm">
           <div class="form-row">
-            <div class="form-group"><label class="form-label">Name</label><input type="text" class="form-input"
-                placeholder="Your name" /></div>
-            <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input"
-                placeholder="your@email.com" /></div>
+            <div class="form-group"><label class="form-label">Name</label><input type="text" class="form-input" id="contactName"
+                placeholder="Your name" required /></div>
+            <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" id="contactEmail"
+                placeholder="your@email.com" required /></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">Phone</label><input type="tel" class="form-input"
+            <div class="form-group"><label class="form-label">Phone</label><input type="tel" class="form-input" id="contactPhone"
                 placeholder="+91 xxxxx xxxxx" /></div>
-            <div class="form-group"><label class="form-label">Subject</label><input type="text" class="form-input"
-                placeholder="Project inquiry" /></div>
+            <div class="form-group"><label class="form-label">Subject</label><input type="text" class="form-input" id="contactSubject"
+                placeholder="Project inquiry" required /></div>
           </div>
-          <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea"
-              placeholder="Tell me about your project..."></textarea></div>
-          <button class="btn-submit"
-            onclick="this.textContent='Sending…';setTimeout(()=>this.textContent='Message Sent ✓',1200)">Send
-            Message</button>
-        </div>
+          <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" id="contactMessage"
+              placeholder="Tell me about your project..." required></textarea></div>
+          <button class="btn-submit" type="submit">Send Message</button>
+          <p class="form-note" id="contactStatus" aria-live="polite"></p>
+        </form>
       </div>
     </div>
   </section>
@@ -1762,6 +1773,38 @@
       });
     }
     addHover('a,button,.skill-card,.service-row,.contact-item,.proj-card,.platform-chip');
+
+    const contactForm = document.getElementById('contactForm');
+    const contactStatus = document.getElementById('contactStatus');
+    if (contactForm) {
+      contactForm.addEventListener('submit', e => {
+        e.preventDefault();
+
+        const name = document.getElementById('contactName').value.trim();
+        const email = document.getElementById('contactEmail').value.trim();
+        const phone = document.getElementById('contactPhone').value.trim();
+        const subject = document.getElementById('contactSubject').value.trim();
+        const message = document.getElementById('contactMessage').value.trim();
+
+        const mailSubject = encodeURIComponent(subject || 'Portfolio Contact');
+        const mailBody = encodeURIComponent(
+          `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\n\nMessage:\n${message}`
+        );
+        const mailtoUrl = `mailto:14sagar.sh@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+
+        if (contactStatus) {
+          contactStatus.textContent = 'Opening your mail app...';
+        }
+
+        window.location.href = mailtoUrl;
+
+        // Fallback for browsers/devices where mailto does not open automatically.
+        setTimeout(() => {
+          if (!contactStatus) return;
+          contactStatus.innerHTML = 'If nothing opened, use this link: <a href="' + mailtoUrl + '">Open email draft</a>';
+        }, 1200);
+      });
+    }
 
     const heroProfileImage = document.getElementById('heroProfileImage');
     const heroPhotoFrame = document.getElementById('heroPhotoFrame');
