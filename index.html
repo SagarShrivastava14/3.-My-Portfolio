@@ -210,6 +210,26 @@
       animation: fadeUp .8s .1s ease both;
     }
 
+    .hero-name-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 1rem;
+      flex-wrap: nowrap;
+    }
+
+    .hero-mobile-dp {
+      display: none;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 2px solid rgba(138, 80, 255, .45);
+      box-shadow: 0 0 0 4px rgba(138, 80, 255, .12), 0 10px 32px rgba(138, 80, 255, .3);
+      background: var(--card);
+      flex-shrink: 0;
+    }
+
     .hero-name span {
       color: var(--violet);
     }
@@ -371,6 +391,7 @@
       pointer-events: none;
       background: radial-gradient(circle at 50% 50%, transparent 66%, rgba(7, 5, 15, .5) 100%);
     }
+
 
     .hero-photo-placeholder {
       position: absolute;
@@ -1343,8 +1364,31 @@
         padding-top: 5rem;
       }
 
+      .hero-left {
+        padding-top: 3.2rem;
+      }
+
+      .hero-name {
+        font-size: clamp(3.4rem, 14vw, 5.5rem);
+        line-height: .92;
+      }
+
+      .hero-name-row {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 1.2rem;
+      }
+
       .hero-right {
         display: none;
+      }
+
+      .hero-mobile-dp {
+        display: block;
+        width: clamp(88px, 22vw, 120px);
+        height: clamp(88px, 22vw, 120px);
+        margin-bottom: 0;
+        flex: 0 0 auto;
       }
 
       section {
@@ -1401,6 +1445,22 @@
     }
 
     @media(max-width:500px) {
+      .hero-name {
+        font-size: clamp(2.8rem, 13vw, 4rem);
+      }
+
+      .hero-name-row {
+        gap: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+
+      .hero-mobile-dp {
+        width: 70px;
+        height: 70px;
+      }
+
       .proj-grid {
         grid-template-columns: 1fr;
       }
@@ -1472,7 +1532,10 @@
     <div class="hero-bg"></div>
     <div class="hero-left">
       <div class="hero-tag">Open to Full-Time Opportunities</div>
-      <div class="hero-name">I am<br /><span>Sagar</span></div>
+      <div class="hero-name-row">
+        <div class="hero-name">I am<br /><span>Sagar</span></div>
+        <img src="sager_dp.png" alt="Sagar profile photo" class="hero-mobile-dp">
+      </div>
       <div class="hero-roles">
         <span>Video Editor</span> &nbsp;·&nbsp; <span>VFX Compositor</span> &nbsp;·&nbsp; <span>Creative
           Strategist</span>
