@@ -795,6 +795,25 @@
       font-style: italic;
     }
 
+    .embed-open-link {
+      display: inline-flex;
+      margin-bottom: 1rem;
+    }
+
+    .embed-switcher {
+      margin-bottom: 1rem;
+    }
+
+    .embed-switch-btn {
+      cursor: none;
+    }
+
+    .embed-switch-btn.active {
+      border-color: var(--violet);
+      background: rgba(138, 80, 255, .2);
+      color: var(--white);
+    }
+
     .info-list {
       list-style: none;
       display: flex;
@@ -851,6 +870,58 @@
     #services {
       background: var(--bg);
       border-top: 1px solid var(--border);
+    }
+
+    #narmada {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .narmada-intro {
+      max-width: 760px;
+      font-size: .92rem;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .narmada-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .narmada-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.2rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+      display: block;
+      cursor: none;
+    }
+
+    .narmada-card:hover {
+      border-color: var(--violet);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(138, 80, 255, .2);
+    }
+
+    .narmada-card-title {
+      font-family: var(--font-heading);
+      font-size: .95rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: .35rem;
+    }
+
+    .narmada-card-desc {
+      font-size: .82rem;
+      line-height: 1.6;
+      color: var(--muted);
     }
 
     .services-list {
@@ -1478,56 +1549,12 @@
 
   <!-- SERVICES -->
   <section id="services">
-    <div class="section-label reveal">What I Offer</div>
-    <div class="section-title reveal">Quality Services</div>
+    <div class="section-label reveal">MY WORK</div>
+    <div class="section-title reveal">FEATURED PROJECTS</div>
     <div class="section-divider reveal"></div>
     <div class="services-list">
-      <div class="service-row reveal">
+      <div class="service-row reveal" onclick="openModal('podcastproduction')">
         <div class="service-num">01</div>
-        <div class="service-content">
-          <div class="service-title">Video Production &amp; Editing</div>
-          <div class="service-desc">End-to-end video editing with cinematic transitions, sound balancing, and
-            platform-ready delivery.</div>
-        </div>
-        <div class="service-arrow">→</div>
-      </div>
-      <div class="service-row reveal">
-        <div class="service-num">02</div>
-        <div class="service-content">
-          <div class="service-title">VFX &amp; Compositing</div>
-          <div class="service-desc">Green/blue screen compositing, CG integration, and high-quality visual enhancements
-            using NUKE and After Effects.</div>
-        </div>
-        <div class="service-arrow">→</div>
-      </div>
-      <div class="service-row reveal">
-        <div class="service-num">03</div>
-        <div class="service-content">
-          <div class="service-title">Short-Form Content Creation</div>
-          <div class="service-desc">High-engagement reels and short videos optimised for social media reach.</div>
-        </div>
-        <div class="service-arrow">→</div>
-      </div>
-      <div class="service-row reveal">
-        <div class="service-num">04</div>
-        <div class="service-content">
-          <div class="service-title">Creative Direction</div>
-          <div class="service-desc">Concept development, storytelling, and visual planning aligned with brand identity.
-          </div>
-        </div>
-        <div class="service-arrow">→</div>
-      </div>
-      <div class="service-row reveal">
-        <div class="service-num">05</div>
-        <div class="service-content">
-          <div class="service-title">Content Workflow Management</div>
-          <div class="service-desc">Structured scheduling, team coordination, and execution tracking for consistent
-            output.</div>
-        </div>
-        <div class="service-arrow">→</div>
-      </div>
-      <div class="service-row reveal">
-        <div class="service-num">06</div>
         <div class="service-content">
           <div class="service-title">Podcast Production</div>
           <div class="service-desc">Complete podcast workflow — recording guidance, editing, audio cleanup, and
@@ -1535,12 +1562,64 @@
         </div>
         <div class="service-arrow">→</div>
       </div>
-      <div class="service-row reveal">
+      <div class="service-row reveal" onclick="openModal('creativedirection')">
+        <div class="service-num">02</div>
+        <div class="service-content">
+          <div class="service-title">Creative Direction</div>
+          <div class="service-desc">Concept development, storytelling, and visual planning aligned with brand identity.
+          </div>
+        </div>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-row reveal" onclick="openModal('shortformcontent')">
+        <div class="service-num">03</div>
+        <div class="service-content">
+          <div class="service-title">Short-Form Content Creation</div>
+          <div class="service-desc">High-engagement reels and short videos optimised for social media reach.</div>
+        </div>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-row reveal" onclick="openModal('contentworkflow')">
+        <div class="service-num">04</div>
+        <div class="service-content">
+          <div class="service-title">Content Workflow Management</div>
+          <div class="service-desc">Structured scheduling, team coordination, and execution tracking for consistent
+            output.</div>
+        </div>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-row reveal" onclick="openModal('vfxcompositing')">
+        <div class="service-num">05</div>
+        <div class="service-content">
+          <div class="service-title">VFX &amp; Compositing</div>
+          <div class="service-desc">Green/blue screen compositing, CG integration, and high-quality visual enhancements
+            using NUKE and After Effects.</div>
+        </div>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-row reveal" onclick="openModal('videoproduction')">
+        <div class="service-num">06</div>
+        <div class="service-content">
+          <div class="service-title">Video Production &amp; Editing</div>
+          <div class="service-desc">End-to-end video editing with cinematic transitions, sound balancing, and
+            platform-ready delivery.</div>
+        </div>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-row reveal" onclick="openModal('contentperformance')">
         <div class="service-num">07</div>
         <div class="service-content">
           <div class="service-title">Content Performance &amp; Workflow Optimization</div>
           <div class="service-desc">Tracking content performance, managing structured workflows, and optimizing
             publishing strategies across multiple platforms for better reach and consistency.</div>
+        </div>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-row reveal" onclick="openModal('narmadanews')">
+        <div class="service-num">08</div>
+        <div class="service-content">
+          <div class="service-title">Narmada News</div>
+          <div class="service-desc">Dedicated edited video work and published news video archive.</div>
         </div>
         <div class="service-arrow">→</div>
       </div>
@@ -1890,6 +1969,98 @@
           }
         ]
       },
+      vfxcompositing: {
+        icon: '🧪', title: 'VFX & Compositing',
+        sections: [
+          {
+            title: '🎥 Related Work Links', type: 'embedsSwitch', items: [
+              { label: '2025 Showreel - Compositing & VFX', src: 'https://player.vimeo.com/video/1074872529?color=8a50ff&title=0&byline=0&portrait=0&autoplay=0&muted=0', url: 'https://vimeo.com/1074872529', desc: '2025 showreel played inside this website.' },
+              { label: 'Full Reel Breakdown', src: 'https://vimeo.com/showcase/11765729/embed?autoplay=0&muted=0', url: 'https://vimeo.com/showcase/11765729', desc: 'Full reel breakdown playlist played inside this website.' }
+            ]
+          }
+        ]
+      },
+      videoproduction: {
+        icon: '🎬', title: 'Video Production & Editing',
+        sections: [
+          {
+            title: '🎬 Edited Video Projects', type: 'cards', items: [
+              { icon: '▶️', label: 'MetaGolem - YouTube Channel', url: 'https://www.youtube.com/@MetaGolem', desc: 'Edited videos and created thumbnails for channel content.' },
+              { icon: '▶️', label: 'AARYAN GAMING - YouTube Channel', url: 'https://www.youtube.com/@AARYANGAMINGYT', desc: 'Video editing work published on the Aaryan Gaming channel.' },
+              { icon: '▶️', label: 'Raahul Is Live - YouTube Channel', url: 'https://www.youtube.com/@raahulislive', desc: 'Video production and editing work for Raahul Is Live content.' },
+              { icon: '🎞️', label: 'Stop-motion Films', url: 'https://www.youtube.com/watch?v=OBC0maENvbI&list=PLuNEzoAaIyTeEVc6_8ZgnLrMtYnIA_NNc&pp=gAQB', desc: 'Stop-motion films playlist showcasing edited and composited work.' }
+            ]
+          }
+        ]
+      },
+      shortformcontent: {
+        icon: '🎬', title: 'Short-Form Content & Client Edits',
+        sections: [
+          {
+            title: '🎬 Short-Form Content & Client Edits', type: 'cards', items: [
+              { icon: '🎞️', label: 'Reels', url: 'https://drive.google.com/drive/folders/18fBbMm6StsR9TwnX_shXO0FoHkO4FpcR?usp=drive_link', desc: 'Reels for multiple platforms and audiences.' },
+              { icon: '📢', label: 'Ads', url: 'https://drive.google.com/drive/folders/1pd8mneHP0daWjz9f6ynzrXswmQfMLgUX?usp=drive_link', desc: 'Ad edits and campaign-ready short-form creatives.' }
+            ]
+          }
+        ]
+      },
+      contentworkflow: {
+        icon: '📊', title: 'Content Workflow Management',
+        sections: [
+          {
+            title: '📊 Workflow & Social Content Tracking', type: 'cards', items: [
+              { icon: '📅', label: 'Social Media Content', url: 'https://docs.google.com/spreadsheets/d/1EPOmhH4rs4RXy72QAUacX2aYlWe0tUPR-UQcy1v_3NI/edit?usp=sharing', desc: 'Content planning, scheduling, and execution tracking across multiple platforms.' }
+            ]
+          }
+        ]
+      },
+      creativedirection: {
+        icon: '🎯', title: 'Creative Direction',
+        sections: [
+          {
+            title: '🎬 Creative Direction Projects', type: 'cards', items: [
+              { icon: '📣', label: 'Product Ad', url: 'https://drive.google.com/drive/folders/1j2V3HtAZO86djl9yxrjf-0bfSbsAl-cY?usp=drive_link', desc: 'Creative direction and execution for product advertisement content.' }
+            ]
+          }
+        ]
+      },
+      podcastproduction: {
+        icon: '🎙️', title: 'Podcast Production',
+        sections: [
+          {
+            title: '🎙 Podcast Projects', type: 'cards', items: [
+              { icon: '🎧', label: 'BE THE ONE Podcast', url: 'https://drive.google.com/drive/folders/1yFX-i8X6Qi4Evaxhf2YL0htapnNPWzqt?usp=drive_link', desc: 'Podcast episodes, edits, and production files.' },
+              { icon: '▶️', label: 'YouTube Podcast Episode 1', url: 'https://www.youtube.com/watch?v=hjAu6-ids84', desc: 'Published podcast video on YouTube.' },
+              { icon: '▶️', label: 'YouTube Podcast Episode 2', url: 'https://www.youtube.com/watch?v=G1NJ_3vd-Wg&t=1695s', desc: 'Long-form podcast video on YouTube.' }
+            ]
+          }
+        ]
+      },
+      contentperformance: {
+        icon: '📈', title: 'Content Performance & Workflow Optimization',
+        sections: [
+          {
+            title: '🔗 NexNeuro Social Platforms Managed', type: 'platforms', items: [
+              { label: 'Instagram', icon: '📸', url: 'https://www.instagram.com/nexneuro.official/' },
+              { label: 'Twitter/X', icon: '✖️', url: 'https://x.com/nex_neuro' },
+              { label: 'YouTube', icon: '▶️', url: 'https://www.youtube.com/@NexNeuro.Official' },
+              { label: 'Threads', icon: '🧵', url: 'https://www.threads.com/@nexneuro.official' },
+              { label: 'LinkedIn', icon: '💼', url: 'https://www.linkedin.com/company/nexneuroit/' },
+              { label: 'Facebook', icon: '👥', url: 'https://www.facebook.com/profile.php?id=61583295068718' }
+            ]
+          }
+        ]
+      },
+      narmadanews: {
+        icon: '📰', title: 'Narmada News',
+        sections: [
+          {
+            title: '📰 Edited Video Work', type: 'cards', items: [
+              { icon: '▶️', label: 'Narmada News Video Archive', url: 'https://www.facebook.com/profile.php?id=61551657777793', desc: 'All edited news videos and published clips on the official Narmada News page.' }
+            ]
+          }
+        ]
+      },
       nuke: {
         icon: '🧪', title: 'NUKE — VFX Compositing',
         sections: [
@@ -1983,11 +2154,25 @@
         if (sec.type === 'embeds') {
           sec.items.forEach(item => {
             if (item.vimeoId) {
-              html += `<div class="embed-wrap"><iframe src="https://player.vimeo.com/video/${item.vimeoId}?color=8a50ff&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><p class="embed-label">${item.desc}</p>`;
+              html += `<div class="embed-wrap"><iframe src="https://player.vimeo.com/video/${item.vimeoId}?color=8a50ff&title=0&byline=0&portrait=0&autoplay=0&muted=0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen></iframe></div><p class="embed-label">${item.desc}</p>`;
+            } else if (item.embedUrl) {
+              html += `<div class="embed-wrap"><iframe src="${item.embedUrl}" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen></iframe></div><p class="embed-label">${item.desc || item.label}</p>`;
             } else {
               html += `<a class="platform-chip" href="${item.url}" target="_blank" rel="noopener" style="margin-bottom:1rem;display:inline-flex;">🔗 ${item.label}</a>`;
             }
           });
+        }
+        if (sec.type === 'embedsSwitch') {
+          const first = sec.items[0];
+          if (first) {
+            html += `<div class="platform-chips embed-switcher">`;
+            sec.items.forEach((item, idx) => {
+              html += `<button type="button" class="platform-chip embed-switch-btn${idx === 0 ? ' active' : ''}" data-embed-src="${item.src}" data-embed-desc="${item.desc || item.label}" data-embed-link="${item.url || item.src}">▶ ${item.label}</button>`;
+            });
+            html += `</div>`;
+            html += `<a class="platform-chip embed-open-link switch-embed-open" href="${first.url || first.src}" target="_blank" rel="noopener">🔗 Open on Vimeo</a>`;
+            html += `<div class="embed-wrap"><iframe class="switch-embed-frame" src="${first.src}" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen></iframe></div><p class="embed-label switch-embed-label">${first.desc || first.label}</p>`;
+          }
         }
         if (sec.type === 'cards') {
           html += `<div class="proj-grid">`;
@@ -2023,6 +2208,29 @@
       document.body.style.overflow = '';
       setTimeout(() => { document.getElementById('modalBody').innerHTML = ''; }, 320);
     }
+
+    const modalBody = document.getElementById('modalBody');
+    if (modalBody) {
+      modalBody.addEventListener('click', e => {
+        const btn = e.target.closest('.embed-switch-btn');
+        if (!btn) return;
+
+        const frame = modalBody.querySelector('.switch-embed-frame');
+        const label = modalBody.querySelector('.switch-embed-label');
+        const openLink = modalBody.querySelector('.switch-embed-open');
+        const nextSrc = btn.getAttribute('data-embed-src');
+        const nextDesc = btn.getAttribute('data-embed-desc');
+        const nextLink = btn.getAttribute('data-embed-link');
+
+        if (frame && nextSrc) frame.src = nextSrc;
+        if (label && nextDesc) label.textContent = nextDesc;
+        if (openLink && nextLink) openLink.href = nextLink;
+
+        modalBody.querySelectorAll('.embed-switch-btn').forEach(el => el.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    }
+
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
   </script>
 </body>
