@@ -999,7 +999,53 @@
       font-style: italic;
     }
 
-    /* CONTACT */
+    /* SOCIAL SIDEBAR */
+    .socials-sidebar {
+      position: fixed;
+      right: 1.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      z-index: 220;
+    }
+
+    .social-link {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(19, 15, 37, .9);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      text-decoration: none;
+      transition: transform .2s, border-color .2s, box-shadow .2s, background .2s;
+      cursor: none;
+      backdrop-filter: blur(10px);
+    }
+
+    .social-link svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+      opacity: .92;
+      transition: opacity .2s;
+    }
+
+    .social-link:hover {
+      border-color: var(--violet);
+      transform: translateX(-4px) scale(1.06);
+      box-shadow: 0 8px 24px rgba(138, 80, 255, .28);
+      background: rgba(138, 80, 255, .2);
+    }
+
+    .social-link:hover svg {
+      opacity: 1;
+    }
+
     #contact {
       background: var(--surface);
       border-top: 1px solid var(--border);
@@ -1242,6 +1288,29 @@
         padding: 1.2rem;
       }
 
+      .socials-sidebar {
+        left: 50%;
+        right: auto;
+        top: auto;
+        bottom: 1rem;
+        transform: translateX(-50%);
+        flex-direction: row;
+        background: rgba(15, 11, 30, .85);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: .4rem;
+      }
+
+      .social-link {
+        width: 40px;
+        height: 40px;
+        border-radius: 999px;
+      }
+
+      .social-link:hover {
+        transform: translateY(-2px) scale(1.04);
+      }
+
       .proj-grid {
         grid-template-columns: 1fr 1fr;
       }
@@ -1285,6 +1354,34 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
+
+  <aside class="socials-sidebar" aria-label="Social links">
+    <a class="social-link" href="https://www.youtube.com/@MetaGolem" target="_blank" rel="noopener" aria-label="YouTube">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M8.051 1.999h-.103c-2.915-.009-4.181.181-4.993.445a1.94 1.94 0 0 0-1.343 1.342C1.347 4.598 1.157 5.864 1.166 8.051c-.009 2.186.181 3.452.446 4.264a1.94 1.94 0 0 0 1.342 1.343c.813.264 2.079.454 4.265.445 2.186.009 3.452-.181 4.264-.445a1.94 1.94 0 0 0 1.343-1.343c.264-.812.454-2.078.445-4.264.009-2.187-.181-3.453-.445-4.265a1.94 1.94 0 0 0-1.343-1.342c-.812-.265-2.078-.455-4.264-.445m-1.804 3.322 4.534 2.61-4.534 2.61z" />
+      </svg>
+    </a>
+    <a class="social-link" href="https://discord.com/users/543664428856377355" target="_blank" rel="noopener" aria-label="Discord" title="Discord: MΞTΛG0LΞM (metagolem.)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M13.545 2.907a13.2 13.2 0 0 0-3.257-.995l-.158.33a12.2 12.2 0 0 1 2.819 1.365 9.7 9.7 0 0 0-2.407-1.143 13.1 13.1 0 0 0-5.08 0A9.7 9.7 0 0 0 3.055 3.607a12.3 12.3 0 0 1 2.82-1.365l-.157-.33a13.2 13.2 0 0 0-3.257.995C.423 5.96-.127 8.95.148 11.894a13.4 13.4 0 0 0 4.02 2.03l.861-1.16a8.7 8.7 0 0 1-1.37-.66l.219-.16c2.64 1.234 5.5 1.234 8.108 0l.22.16a8.7 8.7 0 0 1-1.372.66l.861 1.16a13.3 13.3 0 0 0 4.021-2.03c.323-3.414-.551-6.38-2.171-8.987M5.174 10.629c-.789 0-1.435-.727-1.435-1.618s.63-1.618 1.435-1.618c.81 0 1.45.734 1.435 1.618 0 .891-.63 1.618-1.435 1.618m5.651 0c-.789 0-1.435-.727-1.435-1.618s.63-1.618 1.435-1.618c.81 0 1.45.734 1.435 1.618 0 .891-.625 1.618-1.435 1.618" />
+      </svg>
+    </a>
+    <a class="social-link" href="https://www.linkedin.com/in/sagarshrivastava14/" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+      </svg>
+    </a>
+    <a class="social-link" href="https://www.instagram.com/sagar._.shrivastava/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+      </svg>
+    </a>
+    <a class="social-link" href="https://www.facebook.com/sagarshrivastava14" target="_blank" rel="noopener" aria-label="Facebook">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M8.94 6.5H7.5V5.658c0-.8.392-1.158 1.167-1.158h.273V3.06A3.6 3.6 0 0 0 7.5 2.75c-1.5 0-2.5.9-2.5 2.55V6.5H3.75V8.25H5v5h2.5v-5h1.33z" />
+      </svg>
+    </a>
+  </aside>
 
   <!-- HERO -->
   <section id="hero">
