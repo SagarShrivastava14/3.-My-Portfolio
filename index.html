@@ -148,6 +148,42 @@
       list-style: none;
     }
 
+    .nav-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(19, 15, 37, .92);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      cursor: none;
+      padding: 0;
+    }
+
+    .nav-toggle span {
+      width: 18px;
+      height: 2px;
+      background: var(--lavender);
+      border-radius: 10px;
+      transition: transform .25s ease, opacity .2s ease;
+      transform-origin: center;
+    }
+
+    nav.menu-open .nav-toggle span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    nav.menu-open .nav-toggle span:nth-child(2) {
+      opacity: 0;
+    }
+
+    nav.menu-open .nav-toggle span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
     .nav-links a {
       font-family: var(--font-heading);
       font-size: .8rem;
@@ -1352,10 +1388,52 @@
     @media(max-width:900px) {
       nav {
         padding: 1.2rem 1.5rem;
+        align-items: flex-start;
       }
 
       .nav-links {
-        gap: 1.2rem;
+        position: absolute;
+        top: calc(100% + .45rem);
+        left: 1rem;
+        right: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: .4rem;
+        background: rgba(15, 11, 30, .98);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: .8rem;
+        box-shadow: 0 18px 48px rgba(7, 5, 15, .45);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: opacity .2s ease, transform .2s ease;
+      }
+
+      .nav-links li {
+        width: 100%;
+      }
+
+      .nav-links a {
+        display: block;
+        width: 100%;
+        padding: .75rem .9rem;
+        border-radius: 9px;
+      }
+
+      .nav-links a:hover {
+        color: var(--white);
+        background: rgba(138, 80, 255, .14);
+      }
+
+      nav.menu-open .nav-links {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .nav-toggle {
+        display: inline-flex;
       }
 
       #hero {
@@ -1490,7 +1568,12 @@
   <!-- NAV -->
   <nav>
     <div class="nav-logo">Sagar Shrivastava</div>
-    <ul class="nav-links">
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -1905,6 +1988,42 @@
   <script>
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursorRing');
+    const nav = document.querySelector('nav');
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    function closeNavMenu() {
+      if (!nav) return;
+      nav.classList.remove('menu-open');
+      if (navToggle) {
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'Open menu');
+      }
+    }
+
+    if (nav && navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        const nextOpen = !nav.classList.contains('menu-open');
+        nav.classList.toggle('menu-open', nextOpen);
+        navToggle.setAttribute('aria-expanded', String(nextOpen));
+        navToggle.setAttribute('aria-label', nextOpen ? 'Close menu' : 'Open menu');
+      });
+
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => closeNavMenu());
+      });
+
+      document.addEventListener('click', e => {
+        if (!nav.classList.contains('menu-open')) return;
+        if (nav.contains(e.target)) return;
+        closeNavMenu();
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 900) closeNavMenu();
+      });
+    }
+
     document.addEventListener('mousemove', e => {
       cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
       ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px';
