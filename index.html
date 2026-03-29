@@ -1168,6 +1168,7 @@
       font-size: .9rem;
       font-weight: 700;
       color: var(--lavender);
+      text-decoration: none;
     }
 
     .contact-sub {
@@ -1798,14 +1799,14 @@
         <div class="contact-item">
           <div class="contact-icon">✉️</div>
           <div>
-            <div class="contact-value">14sagar.sh@gmail.com</div>
+            <a class="contact-value" href="mailto:14sagar.sh@gmail.com">14sagar.sh@gmail.com</a>
             <div class="contact-sub">Email</div>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">📞</div>
           <div>
-            <div class="contact-value">+91 96300 52575</div>
+            <a class="contact-value contact-phone-link" href="tel:+919630052575" data-copy="+91 96300 52575">+91 96300 52575</a>
             <div class="contact-sub">Phone</div>
           </div>
         </div>
@@ -1855,6 +1856,62 @@
 
     const contactForm = document.getElementById('contactForm');
     const contactStatus = document.getElementById('contactStatus');
+
+    function setContactStatus(text) {
+      if (!contactStatus) return;
+      contactStatus.textContent = text;
+    }
+
+    async function copyTextWithFallback(text) {
+      if (!text) return false;
+
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+          return true;
+        }
+      } catch {
+        // Continue to legacy fallback.
+      }
+
+      try {
+        const temp = document.createElement('textarea');
+        temp.value = text;
+        temp.setAttribute('readonly', '');
+        temp.style.position = 'fixed';
+        temp.style.opacity = '0';
+        temp.style.left = '-9999px';
+        document.body.appendChild(temp);
+        temp.focus();
+        temp.select();
+        const copied = document.execCommand('copy');
+        document.body.removeChild(temp);
+        return copied;
+      } catch {
+        return false;
+      }
+    }
+
+    const contactPhoneLink = document.querySelector('.contact-phone-link');
+    if (contactPhoneLink) {
+      contactPhoneLink.addEventListener('click', async e => {
+        const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+        if (isMobile) return;
+
+        e.preventDefault();
+        const phoneText = contactPhoneLink.getAttribute('data-copy') || contactPhoneLink.textContent.trim();
+        if (!phoneText) return;
+
+        const copied = await copyTextWithFallback(phoneText);
+        if (copied) {
+          setContactStatus('Phone number copied to clipboard.');
+        } else {
+          setContactStatus('Copy blocked by browser. Showing number to copy manually.');
+          window.prompt('Copy this phone number:', phoneText);
+        }
+      });
+    }
+
     if (contactForm) {
       contactForm.addEventListener('submit', e => {
         e.preventDefault();
@@ -1871,9 +1928,7 @@
         );
         const mailtoUrl = `mailto:14sagar.sh@gmail.com?subject=${mailSubject}&body=${mailBody}`;
 
-        if (contactStatus) {
-          contactStatus.textContent = 'Opening your mail app...';
-        }
+        setContactStatus('Opening your mail app...');
 
         window.location.href = mailtoUrl;
 
