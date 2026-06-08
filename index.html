@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sagar — Video Editor · VFX Compositor · Creative Strategist</title>
+  <title>Sagar — Social Media Manager · Digital Solutions Coordinator · Video Editor</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -746,6 +746,133 @@
       padding: 2rem;
     }
 
+    /* CERT VIEWER MODAL */
+    .cert-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 3, 10, .95);
+      backdrop-filter: blur(20px);
+      z-index: 1100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s;
+      padding: 1rem;
+    }
+
+    .cert-modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .cert-viewer {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      width: min(960px, 96vw);
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      transform: translateY(30px) scale(.97);
+      transition: transform .3s;
+      overflow: hidden;
+    }
+
+    .cert-modal-overlay.open .cert-viewer {
+      transform: translateY(0) scale(1);
+    }
+
+    .cert-viewer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.1rem 1.6rem;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .cert-viewer-title {
+      font-family: var(--font-heading);
+      font-size: .9rem;
+      font-weight: 800;
+      color: var(--white);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .cert-viewer-actions {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      flex-shrink: 0;
+    }
+
+    .cert-dl-btn {
+      font-family: var(--font-heading);
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .45rem .9rem;
+      background: rgba(138, 80, 255, .12);
+      color: var(--violet-bright);
+      border: 1px solid rgba(138, 80, 255, .28);
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background .2s, border-color .2s;
+      cursor: none;
+    }
+
+    .cert-dl-btn:hover {
+      background: rgba(138, 80, 255, .25);
+      border-color: var(--violet);
+    }
+
+    .cert-frame-wrap {
+      flex: 1;
+      min-height: 0;
+      background: #111;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cert-frame {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+      transform-origin: center center;
+      transition: none;
+    }
+
+    /* Landscape / rotated certificates */
+    .cert-frame-wrap.rotated .cert-frame {
+      width: calc(90vh - 70px);
+      height: min(960px, 96vw);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .cert-frame-fallback {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      height: 100%;
+      color: var(--muted);
+      font-size: .9rem;
+      text-align: center;
+      padding: 2rem;
+    }
+
     .modal-skill-intro {
       font-size: .88rem;
       line-height: 1.75;
@@ -1361,6 +1488,169 @@
       color: var(--muted);
     }
 
+    /* CERTIFICATIONS */
+    #certifications {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      scroll-margin-top: 90px;
+    }
+
+    .cert-categories {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .cert-category-header {
+      display: flex;
+      align-items: center;
+      gap: .85rem;
+      margin-bottom: 1.4rem;
+      padding-bottom: .8rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cert-category-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(138, 80, 255, .12);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .cert-category-title {
+      font-family: var(--font-heading);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--violet);
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+
+    .cert-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.4rem 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      transition: border-color .25s, transform .25s, box-shadow .25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cert-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0% 50%, rgba(138, 80, 255, .06) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .cert-card:hover {
+      border-color: var(--violet);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 32px rgba(138, 80, 255, .2);
+    }
+
+    .cert-card:hover::before {
+      opacity: 1;
+    }
+
+    .cert-thumb {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      background: rgba(138, 80, 255, .12);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cert-info {
+      flex: 1;
+      min-width: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cert-name {
+      font-family: var(--font-heading);
+      font-size: .88rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: .25rem;
+      line-height: 1.35;
+    }
+
+    .cert-org {
+      font-size: .72rem;
+      color: var(--muted);
+      letter-spacing: .06em;
+    }
+
+    .cert-btn {
+      font-family: var(--font-heading);
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .5rem 1rem;
+      background: rgba(138, 80, 255, .1);
+      color: var(--violet-bright);
+      border: 1px solid rgba(138, 80, 255, .28);
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background .2s, border-color .2s, transform .15s;
+      white-space: nowrap;
+      flex-shrink: 0;
+      cursor: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cert-btn:hover {
+      background: rgba(138, 80, 255, .22);
+      border-color: var(--violet);
+      transform: translateY(-1px);
+    }
+
+    @media(max-width:900px) {
+      .cert-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width:500px) {
+      .cert-card {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .cert-btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
     @keyframes fadeUp {
       from {
         opacity: 0;
@@ -1575,6 +1865,22 @@
     </div>
   </div>
 
+  <!-- CERT VIEWER -->
+  <div class="cert-modal-overlay" id="certModalOverlay" onclick="if(event.target===this)closeCertModal()">
+    <div class="cert-viewer">
+      <div class="cert-viewer-header">
+        <div class="cert-viewer-title" id="certViewerTitle"></div>
+        <div class="cert-viewer-actions">
+          <a class="cert-dl-btn" id="certDlBtn" href="#" download>⬇ Download</a>
+          <button class="modal-close" onclick="closeCertModal()">✕</button>
+        </div>
+      </div>
+      <div class="cert-frame-wrap" id="certFrameWrap">
+        <iframe class="cert-frame" id="certFrame" title="Certificate viewer"></iframe>
+      </div>
+    </div>
+  </div>
+
   <!-- NAV -->
   <nav>
     <div class="nav-logo">Sagar Shrivastava</div>
@@ -1588,6 +1894,7 @@
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -1624,18 +1931,15 @@
   <section id="hero">
     <div class="hero-bg"></div>
     <div class="hero-left">
-      <div class="hero-tag">Open to Full-Time Opportunities</div>
+      <div class="hero-tag">Available for Freelance &amp; Full-Time Opportunities</div>
       <div class="hero-name-row">
         <div class="hero-name">I am<br /><span>Sagar</span></div>
         <img src="sager_dp.png" alt="Sagar profile photo" class="hero-mobile-dp">
       </div>
       <div class="hero-roles">
-        <span>Video Editor</span> &nbsp;·&nbsp; <span>VFX Compositor</span> &nbsp;·&nbsp; <span>Creative
-          Strategist</span>
+        <span>Social Media Manager</span> &nbsp;·&nbsp; <span>Digital Solutions Coordinator</span> &nbsp;·&nbsp; <span>Video Editor</span>
       </div>
-      <p class="hero-desc">Creative professional with 5+ years of experience in video editing, VFX compositing, and
-        content production. Experienced in managing content across multiple platforms and using performance insights to
-        improve reach, engagement, and workflow efficiency.</p>
+      <p class="hero-desc">Digital professional with 5+ years of experience in social media management, content creation, and video production. Skilled in AI &amp; automation tools, digital project coordination, and building systems that drive consistent growth across platforms.</p>
       <div class="hero-actions">
         <a href="#projects" class="btn-primary">View My Work</a>
         <a href="#contact" class="btn-ghost">Get in Touch</a>
@@ -1674,21 +1978,20 @@
     <div class="section-divider reveal"></div>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p>I'm a <strong>Video Editor, VFX Compositor, and Creative Strategist</strong> based in Raipur, India. With
-          over four years in the industry, I've worked with startups, established studios like <strong>Technicolor
-            MPC</strong>, and independent brands.</p>
-        <p>At <strong>NexNeuro</strong>, I serve as Digital Marketing Manager and Creative Producer — running the
-          <strong>NexVaani Podcast</strong> as primary host and sole editor, managing content across 6 platforms, and
-          driving growth from 0 to 400+ LinkedIn followers and ~1,000 on Instagram.
-        </p>
-        <p>I focus on creating content that not only looks visually strong but also performs well — using structured
-          workflows, tracking, and platform insights to continuously improve results.</p>
+        <p>I'm a <strong>Social Media Manager, Digital Solutions Coordinator, and Video Editor</strong> based in Raipur, India. With over five years in the industry, I've worked with startups, established studios like <strong>Technicolor MPC</strong>, and independent brands.</p>
+        <p>At <strong>NexNeuro</strong>, I served as Digital Marketing Manager and Creative Producer — managing social media across 6 platforms, hosting and editing the <strong>NexVaani Podcast</strong>, and driving growth to 500+ LinkedIn followers and 500+ on Instagram. I also applied <strong>AI &amp; automation tools</strong> to streamline content workflows and publishing consistency.</p>
+        <p>I combine creative production skills with strategic digital coordination — building efficient systems, leveraging AI tools, and using platform insights to deliver consistent, high-performing results.</p>
       </div>
       <div class="reveal">
         <div class="info-card">
-          <div class="info-card-label">Current Role</div>
+          <div class="info-card-label">Current Status</div>
+          <div class="info-card-title">Freelance Social Media Manager &amp; Video Editor</div>
+          <div class="info-card-sub">Open to New Opportunities · June 2026</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Previous Role</div>
           <div class="info-card-title">Digital Marketing Manager</div>
-          <div class="info-card-sub">Creative Producer · NexNeuro · Oct 2025–Present</div>
+          <div class="info-card-sub">Creative Producer · NexNeuro · Oct 2025 – Jun 2026</div>
         </div>
         <div class="info-card">
           <div class="info-card-label">Education</div>
@@ -1706,69 +2009,63 @@
 
   <!-- projects -->
   <section id="projects">
-    <div class="section-label reveal">MY WORK</div>
-    <div class="section-title reveal">FEATURED PROJECTS</div>
+    <div class="section-label reveal">EXPERTISE</div>
+    <div class="section-title reveal">WHAT I DO</div>
     <div class="section-divider reveal"></div>
     <div class="projects-list">
-      <div class="service-row reveal" onclick="openModal('podcastproduction')">
+      <div class="service-row reveal" onclick="openModal('socialmediamanagement')">
         <div class="service-num">01</div>
         <div class="service-content">
-          <div class="service-title">Podcast Production</div>
-          <div class="service-desc">Complete podcast workflow — recording guidance, editing, audio cleanup, and
-            publishing.</div>
+          <div class="service-title">Social Media Management</div>
+          <div class="service-desc">End-to-end social strategy across LinkedIn, Instagram, YouTube, and more — content planning, scheduling, performance tracking, and audience growth.</div>
         </div>
         <div class="service-arrow">→</div>
       </div>
-      <div class="service-row reveal" onclick="openModal('creativedirection')">
+      <div class="service-row reveal" onclick="openModal('aiautomation')">
         <div class="service-num">02</div>
         <div class="service-content">
-          <div class="service-title">Creative Direction</div>
-          <div class="service-desc">Concept development, storytelling, and visual planning aligned with brand identity.
-          </div>
+          <div class="service-title">AI &amp; Automation</div>
+          <div class="service-desc">Applying AI tools and workflow automation to accelerate content production, reduce manual effort, and maintain publishing consistency at scale.</div>
+        </div>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-row reveal" onclick="openModal('digitalsolutions')">
+        <div class="service-num">03</div>
+        <div class="service-content">
+          <div class="service-title">Digital Solutions &amp; Project Coordination</div>
+          <div class="service-desc">Building structured systems for workflow management, team coordination, execution tracking, and consistent cross-platform delivery.</div>
         </div>
         <div class="service-arrow">→</div>
       </div>
       <div class="service-row reveal" onclick="openModal('shortformcontent')">
-        <div class="service-num">03</div>
-        <div class="service-content">
-          <div class="service-title">Short-Form Content Creation</div>
-          <div class="service-desc">High-engagement reels and short videos optimised for social media reach.</div>
-        </div>
-        <div class="service-arrow">→</div>
-      </div>
-      <div class="service-row reveal" onclick="openModal('contentworkflow')">
         <div class="service-num">04</div>
         <div class="service-content">
-          <div class="service-title">Content Workflow Management</div>
-          <div class="service-desc">Structured scheduling, team coordination, and execution tracking for consistent
-            output.</div>
-        </div>
-        <div class="service-arrow">→</div>
-      </div>
-      <div class="service-row reveal" onclick="openModal('vfxcompositing')">
-        <div class="service-num">05</div>
-        <div class="service-content">
-          <div class="service-title">VFX &amp; Compositing</div>
-          <div class="service-desc">Green/blue screen compositing, CG integration, and high-quality visual enhancements
-            using NUKE and After Effects.</div>
+          <div class="service-title">Short-Form Content Creation</div>
+          <div class="service-desc">High-engagement reels and short videos optimised for social media reach and retention.</div>
         </div>
         <div class="service-arrow">→</div>
       </div>
       <div class="service-row reveal" onclick="openModal('videoproduction')">
-        <div class="service-num">06</div>
+        <div class="service-num">05</div>
         <div class="service-content">
           <div class="service-title">Video Production &amp; Editing</div>
-          <div class="service-desc">End-to-end video editing with cinematic transitions, sound balancing, and
-            platform-ready delivery.</div>
+          <div class="service-desc">End-to-end video editing with cinematic transitions, sound balancing, and platform-ready delivery.</div>
         </div>
         <div class="service-arrow">→</div>
       </div>
-      <div class="service-row reveal" onclick="openModal('contentperformance')">
+      <div class="service-row reveal" onclick="openModal('vfxcompositing')">
+        <div class="service-num">06</div>
+        <div class="service-content">
+          <div class="service-title">VFX &amp; Compositing</div>
+          <div class="service-desc">Green/blue screen compositing, CG integration, and high-quality visual enhancements using NUKE and After Effects.</div>
+        </div>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-row reveal" onclick="openModal('podcastproduction')">
         <div class="service-num">07</div>
         <div class="service-content">
-          <div class="service-title">Content Performance &amp; Workflow Optimization</div>
-          <div class="service-desc">Tracking content performance, managing structured workflows, and optimizing
-            publishing strategies across multiple platforms for better reach and consistency.</div>
+          <div class="service-title">Podcast Production</div>
+          <div class="service-desc">Complete podcast workflow — recording guidance, editing, audio cleanup, and publishing.</div>
         </div>
         <div class="service-arrow">→</div>
       </div>
@@ -1791,6 +2088,15 @@
     <p class="skills-intro reveal">Click any skill card to explore real projects, showreels, and work samples linked
       directly from my portfolio.</p>
     <div class="skills-grid">
+
+      <div class="skill-card reveal" onclick="openModal('aitools')">
+        <div class="skill-card-top">
+          <div class="skill-icon">🤖</div>
+          <div class="skill-name">AI &amp; Automation Tools</div>
+        </div>
+        <div class="skill-desc">Applying ChatGPT, Canva AI, and workflow automation to speed up content production, ideation, and publishing across platforms.</div>
+        <div class="skill-badge">⚡ Active Use</div>
+      </div>
 
       <div class="skill-card reveal" onclick="openModal('aftereffects')">
         <div class="skill-card-top">
@@ -1832,24 +2138,22 @@
         <div class="skill-badge">🎬 View Work</div>
       </div>
 
-      <div class="skill-card reveal">
-        <div class="skill-card-top">
-          <div class="skill-icon">🧮</div>
-          <div class="skill-name">SQL</div>
-        </div>
-        <div class="skill-desc">Data querying, cleaning, and analysis using joins, aggregations, and business-driven
-          insights.</div>
-        <div class="skill-badge">📊 View Insights</div>
-      </div>
-
       <div class="skill-card reveal" onclick="openModal('excel')">
         <div class="skill-card-top">
           <div class="skill-icon">📊</div>
-          <div class="skill-name">Excel</div>
+          <div class="skill-name">Excel &amp; Spreadsheets</div>
         </div>
-        <div class="skill-desc">Data analysis, dashboards, pivot tables, and reporting for actionable business insights.
-        </div>
+        <div class="skill-desc">Content calendars, publishing trackers, and workflow sheets used to manage and coordinate multi-platform content operations.</div>
         <div class="skill-badge">📈 View Workflow</div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-card-top">
+          <div class="skill-icon">🧮</div>
+          <div class="skill-name">Data Analytics</div>
+        </div>
+        <div class="skill-desc">Developing SQL and data analysis skills for content performance reporting — currently building proficiency as part of ongoing professional development.</div>
+        <div class="skill-badge">🎓 In Development</div>
       </div>
 
     </div>
@@ -1867,7 +2171,7 @@
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div>
-              <div class="timeline-period">Oct 2025 – Present</div>
+              <div class="timeline-period">Oct 2025 – Jun 2026</div>
               <div class="timeline-role">Digital Marketing Manager / Creative Producer</div>
               <div class="timeline-org">NexNeuro</div>
             </div>
@@ -1938,6 +2242,136 @@
     </div>
   </section>
 
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="section-label reveal">CREDENTIALS</div>
+    <div class="section-title reveal">CERTIFICATIONS</div>
+    <div class="section-divider reveal"></div>
+    <div class="cert-categories">
+
+      <!-- A. Creative & VFX -->
+      <div class="reveal">
+        <div class="cert-category-header">
+          <div class="cert-category-icon">🎬</div>
+          <div class="cert-category-title">Creative &amp; VFX</div>
+        </div>
+        <div class="cert-grid">
+          <div class="cert-card">
+            <div class="cert-thumb">🏆</div>
+            <div class="cert-info">
+              <div class="cert-name">VFX Compositor Certification I</div>
+              <div class="cert-org">Technicolor Creative Studios (MPC)</div>
+            </div>
+            <button class="cert-btn" onclick="openCertModal('certificates/TechnicolorCreativeStrudios%20(VFX_Compositor).pdf','VFX Compositor Certification I')">View →</button>
+          </div>
+          <div class="cert-card">
+            <div class="cert-thumb">🏆</div>
+            <div class="cert-info">
+              <div class="cert-name">VFX Compositor Certification II</div>
+              <div class="cert-org">Technicolor Creative Studios (MPC)</div>
+            </div>
+            <button class="cert-btn" onclick="openCertModal('certificates/TechnicolorCreativeStrudios%20(VFX_Compositor)-1.pdf','VFX Compositor Certification II')">View →</button>
+          </div>
+          <div class="cert-card">
+            <div class="cert-thumb">🎭</div>
+            <div class="cert-info">
+              <div class="cert-name">Animation Training</div>
+              <div class="cert-org">Technicolor Creative Studios (MPC)</div>
+            </div>
+            <button class="cert-btn" onclick="openCertModal('certificates/TechnicolorCreativeStrudios%20(Animation).pdf','Animation Training — Technicolor Creative Studios')">View →</button>
+          </div>
+          <div class="cert-card">
+            <div class="cert-thumb">🎯</div>
+            <div class="cert-info">
+              <div class="cert-name">Nuke Compositing for 3D Artists</div>
+              <div class="cert-org">CGMA</div>
+            </div>
+            <button class="cert-btn" onclick="openCertModal('certificates/Nuke%20Compositing%20for%203D%20Artists%20by%20CGMA.pdf','Nuke Compositing for 3D Artists')">View →</button>
+          </div>
+          <div class="cert-card">
+            <div class="cert-thumb">🎬</div>
+            <div class="cert-info">
+              <div class="cert-name">Adobe After Effects Certification</div>
+              <div class="cert-org">Adobe</div>
+            </div>
+            <button class="cert-btn" onclick="openCertModal('certificates/Adobe%20After%20Effects.pdf','Adobe After Effects Certification',true)">View →</button>
+          </div>
+          <div class="cert-card">
+            <div class="cert-thumb">🎞️</div>
+            <div class="cert-info">
+              <div class="cert-name">Adobe Premiere &amp; Audition Certification</div>
+              <div class="cert-org">Adobe</div>
+            </div>
+            <button class="cert-btn" onclick="openCertModal('certificates/Adobe%20Premiere%20_%20Audition.pdf','Adobe Premiere &amp; Audition Certification',true)">View →</button>
+          </div>
+          <div class="cert-card">
+            <div class="cert-thumb">🎨</div>
+            <div class="cert-info">
+              <div class="cert-name">Adobe Photoshop Certification</div>
+              <div class="cert-org">Adobe</div>
+            </div>
+            <button class="cert-btn" onclick="openCertModal('certificates/Adobe%20Photoshop.pdf','Adobe Photoshop Certification',true)">View →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- B. AI & Automation -->
+      <div class="reveal">
+        <div class="cert-category-header">
+          <div class="cert-category-icon">🤖</div>
+          <div class="cert-category-title">AI &amp; Automation</div>
+        </div>
+        <div class="cert-grid">
+          <div class="cert-card">
+            <div class="cert-thumb">🤖</div>
+            <div class="cert-info">
+              <div class="cert-name">Generative AI Tools</div>
+              <div class="cert-org">Skill Nation</div>
+            </div>
+            <button class="cert-btn" onclick="openCertModal('certificates/Sagar%20Shrivastava_Generative%20AI%20Tools.pdf','Generative AI Tools — Skill Nation')">View →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- C. Digital Marketing -->
+      <div class="reveal">
+        <div class="cert-category-header">
+          <div class="cert-category-icon">📣</div>
+          <div class="cert-category-title">Digital Marketing</div>
+        </div>
+        <div class="cert-grid">
+          <div class="cert-card">
+            <div class="cert-thumb">📣</div>
+            <div class="cert-info">
+              <div class="cert-name">Digital Marketing Workshop</div>
+              <div class="cert-org">Professional Development</div>
+            </div>
+            <button class="cert-btn" onclick="openCertModal('certificates/DM_Workshop.pdf','Digital Marketing Workshop')">View →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- D. Data & Analytics -->
+      <div class="reveal">
+        <div class="cert-category-header">
+          <div class="cert-category-icon">📊</div>
+          <div class="cert-category-title">Data &amp; Analytics</div>
+        </div>
+        <div class="cert-grid">
+          <div class="cert-card">
+            <div class="cert-thumb">🧮</div>
+            <div class="cert-info">
+              <div class="cert-name">Microsoft SQL Server (MSSQL) Certification</div>
+              <div class="cert-org">Professional Certification</div>
+            </div>
+            <button class="cert-btn" onclick="openCertModal('certificates/MSSQL_Certificate.pdf','Microsoft SQL Server (MSSQL) Certification',true)">View →</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact">
     <div class="section-label reveal">Get in Touch</div>
@@ -1992,7 +2426,7 @@
 
   <footer>
     <div class="footer-logo">Sagar Shrivastava</div>
-    <div class="footer-copy">© 2025 Sagar · Video Editor · VFX Compositor · Creative Strategist · Raipur, India</div>
+    <div class="footer-copy">© 2025 Sagar · Social Media Manager · Digital Solutions Coordinator · Video Editor · Raipur, India</div>
   </footer>
 
   <script>
@@ -2044,7 +2478,7 @@
         el.addEventListener('mouseleave', () => { cursor.style.width = '12px'; cursor.style.height = '12px'; ring.style.width = '36px'; ring.style.height = '36px'; });
       });
     }
-    addHover('a,button,.skill-card,.service-row,.contact-item,.proj-card,.platform-chip');
+    addHover('a,button,.skill-card,.service-row,.contact-item,.proj-card,.platform-chip,.cert-card,.cert-btn');
 
     const contactForm = document.getElementById('contactForm');
     const contactStatus = document.getElementById('contactStatus');
@@ -2153,6 +2587,102 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     const SKILLS = {
+      socialmediamanagement: {
+        icon: '📱', title: 'Social Media Management',
+        popupNote: 'End-to-end social media management across LinkedIn, Instagram, YouTube, Facebook, Threads, and Twitter/X — content planning, scheduling, performance tracking, and audience growth.',
+        sections: [
+          {
+            title: '🔗 Platforms Managed', type: 'platforms', items: [
+              { label: 'Instagram', icon: '📸', url: 'https://www.instagram.com/nexneuro.official/' },
+              { label: 'LinkedIn', icon: '💼', url: 'https://www.linkedin.com/company/nexneuroit/' },
+              { label: 'YouTube', icon: '▶️', url: 'https://www.youtube.com/@NexNeuro.Official' },
+              { label: 'Twitter/X', icon: '✖️', url: 'https://x.com/nex_neuro' },
+              { label: 'Threads', icon: '🧵', url: 'https://www.threads.com/@nexneuro.official' },
+              { label: 'Facebook', icon: '👥', url: 'https://www.facebook.com/profile.php?id=61583295068718' }
+            ]
+          },
+          {
+            title: '📊 Planning & Tracking', type: 'cards', items: [
+              { icon: '📅', label: 'Social Media Content Calendar', url: 'https://docs.google.com/spreadsheets/d/1EPOmhH4rs4RXy72QAUacX2aYlWe0tUPR-UQcy1v_3NI/edit?usp=sharing', desc: 'Content planning, scheduling, and performance tracking across 6 platforms at NexNeuro.' }
+            ]
+          },
+          {
+            title: '💡 What This Covers', type: 'info', items: [
+              'Multi-platform content scheduling and publishing across 6 channels',
+              'Audience growth tracking and engagement analysis',
+              'Platform-optimized content formats and timing strategies',
+              'Campaign planning aligned with business goals',
+              'Grew NexNeuro from 0 to 500+ followers across LinkedIn and Instagram'
+            ]
+          }
+        ]
+      },
+      aiautomation: {
+        icon: '🤖', title: 'AI & Automation',
+        popupNote: 'Applying AI tools and workflow automation to speed up content production, reduce manual effort, and maintain publishing consistency — without sacrificing quality or brand voice.',
+        sections: [
+          {
+            title: '⚡ Tools & Applications', type: 'info', items: [
+              'ChatGPT for content ideation, caption writing, and copy drafting',
+              'Canva AI and Adobe Firefly for visual content creation',
+              'Automated scheduling and publishing workflows',
+              'AI-assisted research and trend analysis for content strategy',
+              'Reusable content templates and automation triggers to reduce repetitive work'
+            ]
+          },
+          {
+            title: '💡 How AI Is Applied', type: 'info', items: [
+              'Reducing time-to-publish by batching and automating routine content tasks',
+              'Using AI drafts as starting points — refined for accuracy and brand voice',
+              'Building structured systems that scale without proportional time increases',
+              'Applying AI tools strategically to complement creative work, not replace it'
+            ]
+          }
+        ]
+      },
+      digitalsolutions: {
+        icon: '🗂️', title: 'Digital Solutions & Project Coordination',
+        popupNote: 'Building structured digital systems for managing workflows, coordinating teams, tracking deliverables, and ensuring consistent output across platforms and projects.',
+        sections: [
+          {
+            title: '📋 Workflow & Coordination Tools', type: 'cards', items: [
+              { icon: '📅', label: 'Social Media Content Tracker', url: 'https://docs.google.com/spreadsheets/d/1EPOmhH4rs4RXy72QAUacX2aYlWe0tUPR-UQcy1v_3NI/edit?usp=sharing', desc: 'Content planning, execution tracking, and multi-platform publishing workflow built at NexNeuro.' }
+            ]
+          },
+          {
+            title: '💡 What This Covers', type: 'info', items: [
+              'Content calendar design and scheduling across multiple platforms',
+              'Team workflow coordination with clear ownership and timelines',
+              'Execution tracking and publishing consistency systems',
+              'Intern and employee workflow management and task allocation',
+              'Identifying digital bottlenecks and building practical solutions around them'
+            ]
+          }
+        ]
+      },
+      aitools: {
+        icon: '🤖', title: 'AI & Automation Tools',
+        popupNote: 'Hands-on use of AI tools to accelerate content workflows, generate creative assets, and automate repetitive tasks across social media and digital operations.',
+        sections: [
+          {
+            title: '⚡ Tools in Active Use', type: 'info', items: [
+              'ChatGPT — content ideation, captions, copy drafting, and research',
+              'Canva AI — AI-assisted design, image generation, and visual asset creation',
+              'Adobe Firefly — generative AI for image editing and creative exploration',
+              'Scheduling tools for automated content publishing',
+              'Workflow automation for routine digital tasks and content batching'
+            ]
+          },
+          {
+            title: '💡 Application Approach', type: 'info', items: [
+              'AI is used to speed up — not replace — creative and strategic thinking',
+              'Drafts are always reviewed, refined, and aligned with brand voice before publishing',
+              'Automation handles repetitive steps so focus stays on strategy and quality',
+              'Continuously exploring new AI tools relevant to social media and digital coordination'
+            ]
+          }
+        ]
+      },
       aftereffects: {
         icon: '🎬', title: 'After Effects',
         popupNote: 'Motion design and compositing projects focused on cinematic edits, visual polish, and production-ready delivery for brand and content pipelines.',
@@ -2463,7 +2993,38 @@
       });
     }
 
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        closeCertModal();
+        closeModal();
+      }
+    });
+
+    function openCertModal(path, name, rotate) {
+      const overlay   = document.getElementById('certModalOverlay');
+      const frame     = document.getElementById('certFrame');
+      const frameWrap = document.getElementById('certFrameWrap');
+      const title     = document.getElementById('certViewerTitle');
+      const dlBtn     = document.getElementById('certDlBtn');
+      title.textContent = name;
+      dlBtn.href = path;
+      dlBtn.download = name;
+      frameWrap.classList.toggle('rotated', !!rotate);
+      frame.src = path;
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCertModal() {
+      const overlay = document.getElementById('certModalOverlay');
+      if (!overlay.classList.contains('open')) return;
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        document.getElementById('certFrame').src = '';
+        document.getElementById('certFrameWrap').classList.remove('rotated');
+      }, 320);
+    }
   </script>
 </body>
 
