@@ -1,0 +1,14 @@
+{
+  "work": [
+    { "period": "Oct 2025 – Apr 2026", "role": "Digital Marketing Manager / Creative Producer", "org": "NexNeuro", "orgUrl": "" },
+    { "period": "2024 – 2025", "role": "Trainee VFX Compositor", "org": "Technicolor Creative Studios (MPC) x Global VFX Studios", "orgUrl": "" },
+    { "period": "2024 – 2025", "role": "Video Editor", "org": "Narmada News", "orgUrl": "" },
+    { "period": "2021 – Present", "role": "Part-Time YouTuber", "org": "MetaGolem", "orgUrl": "https://www.youtube.com/@MetaGolem", "orgLinkText": "YouTube Channel" }
+  ],
+  "education": [
+    { "period": "Apr – Jun 2025", "role": "SQL Developer Training", "org": "Professional Certification" },
+    { "period": "2021 – 2022", "role": "Advanced Compositing in NUKE", "org": "CGMA & Technicolor" },
+    { "period": "2020", "role": "B.Tech — Computer Science Engineering", "org": "Amity University, Chhattisgarh" },
+    { "period": "2019 – 2021", "role": "Adobe Suite Training", "org": "MAAC" }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "categories": [
+    {
+      "icon": "🎬",
+      "title": "Creative & VFX",
+      "cards": [
+        { "thumb": "🏆", "name": "VFX Compositor Certification I", "org": "Technicolor Creative Studios (MPC)", "file": "certificates/TechnicolorCreativeStrudios%20(VFX_Compositor).pdf", "rotate": false },
+        { "thumb": "🏆", "name": "VFX Compositor Certification II", "org": "Technicolor Creative Studios (MPC)", "file": "certificates/TechnicolorCreativeStrudios%20(VFX_Compositor)-1.pdf", "rotate": false },
+        { "thumb": "🎭", "name": "Animation Training", "org": "Technicolor Creative Studios (MPC)", "file": "certificates/TechnicolorCreativeStrudios%20(Animation).pdf", "rotate": false },
+        { "thumb": "🎯", "name": "Nuke Compositing for 3D Artists", "org": "CGMA", "file": "certificates/Nuke%20Compositing%20for%203D%20Artists%20by%20CGMA.pdf", "rotate": false },
+        { "thumb": "🎬", "name": "Adobe After Effects Certification", "org": "Adobe", "file": "certificates/Adobe%20After%20Effects.pdf", "rotate": true },
+        { "thumb": "🎞️", "name": "Adobe Premiere & Audition Certification", "org": "Adobe", "file": "certificates/Adobe%20Premiere%20_%20Audition.pdf", "rotate": true },
+        { "thumb": "🎨", "name": "Adobe Photoshop Certification", "org": "Adobe", "file": "certificates/Adobe%20Photoshop.pdf", "rotate": true }
+      ]
+    },
+    {
+      "icon": "🤖",
+      "title": "AI & Automation",
+      "cards": [
+        { "thumb": "🤖", "name": "Generative AI Tools", "org": "Skill Nation", "file": "certificates/Sagar%20Shrivastava_Generative%20AI%20Tools.pdf", "rotate": false }
+      ]
+    },
+    {
+      "icon": "📣",
+      "title": "Digital Marketing",
+      "cards": [
+        { "thumb": "📣", "name": "Digital Marketing Workshop", "org": "Professional Development", "file": "certificates/DM_Workshop.pdf", "rotate": false }
+      ]
+    },
+    {
+      "icon": "📊",
+      "title": "Data & Analytics",
+      "cards": [
+        { "thumb": "🧮", "name": "Microsoft SQL Server (MSSQL) Certification", "org": "Professional Certification", "file": "certificates/MSSQL_Certificate.pdf", "rotate": true }
+      ]
+    }
+  ]
+}

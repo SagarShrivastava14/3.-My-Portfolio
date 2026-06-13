@@ -1,0 +1,13 @@
+{
+  "tag": "Available for Freelance & Full-Time Opportunities",
+  "name": "Sagar",
+  "roles": ["Social Media Manager", "Digital Solutions Coordinator", "Video Editor"],
+  "desc": "Digital professional with 5+ years of experience in video editing, VFX, and compositing — extending into content creation and social media management. Skilled in AI & automation tools, digital project coordination, and building systems that drive consistent growth across platforms.",
+  "primaryBtn": { "label": "View My Work", "href": "#projects" },
+  "ghostBtn": { "label": "Get in Touch", "href": "#contact" },
+  "stats": [
+    { "num": "5", "suffix": "+", "label": "Yrs · Video Editing & VFX" },
+    { "num": "50", "suffix": "+", "label": "Work Projects" },
+    { "num": "1.5", "suffix": "K", "label": "Reviews on Work" }
+  ]
+}

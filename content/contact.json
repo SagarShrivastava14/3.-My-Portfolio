@@ -1,0 +1,10 @@
+{
+  "formEmail": "14sagar.sh@gmail.com",
+  "items": [
+    { "icon": "📍", "value": "Raipur, India", "sub": "Location", "href": "" },
+    { "icon": "✉️", "value": "14sagar.sh@gmail.com", "sub": "Email", "href": "mailto:14sagar.sh@gmail.com" },
+    { "icon": "📞", "value": "+91 96300 52575", "sub": "Phone", "href": "tel:+919630052575", "copy": "+91 96300 52575" }
+  ],
+  "footerLogo": "Sagar Shrivastava",
+  "footerLine": "© 2025 Sagar · Video Editor · Social Media Manager · Digital Solutions Coordinator · Raipur, India"
+}

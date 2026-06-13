@@ -1,0 +1,12 @@
+{
+  "list": [
+    { "num": "01", "title": "Short-Form Content Creation", "desc": "High-engagement reels and short videos optimised for social media reach and retention.", "modalKey": "shortformcontent", "noAction": false },
+    { "num": "02", "title": "Podcast Production", "desc": "Complete podcast workflow — recording guidance, editing, audio cleanup, and publishing.", "modalKey": "podcastproduction", "noAction": false },
+    { "num": "03", "title": "VFX & Compositing", "desc": "Green/blue screen compositing, CG integration, and high-quality visual enhancements using NUKE and After Effects.", "modalKey": "vfxcompositing", "noAction": false },
+    { "num": "04", "title": "Video Production & Editing", "desc": "End-to-end video editing with cinematic transitions, sound balancing, and platform-ready delivery.", "modalKey": "videoproduction", "noAction": false },
+    { "num": "05", "title": "Narmada News", "desc": "Dedicated edited video work and published news video archive.", "modalKey": "narmadanews", "noAction": false },
+    { "num": "06", "title": "Social Media Management", "desc": "End-to-end social strategy across LinkedIn, Instagram, YouTube, and more — content planning, scheduling, performance tracking, and audience growth.", "modalKey": "socialmediamanagement", "noAction": false },
+    { "num": "07", "title": "Digital Solutions & Project Coordination", "desc": "Building structured systems for workflow management, team coordination, execution tracking, and consistent cross-platform delivery.", "modalKey": "digitalsolutions", "noAction": true },
+    { "num": "08", "title": "AI & Automation", "desc": "Applying AI tools and workflow automation to accelerate content production, reduce manual effort, and maintain publishing consistency at scale.", "modalKey": "aiautomation", "noAction": false }
+  ]
+}

@@ -1,0 +1,706 @@
+{
+  "modals": [
+    {
+      "key": "socialmediamanagement",
+      "icon": "📱",
+      "title": "Social Media Management",
+      "popupNote": "End-to-end social media management across LinkedIn, Instagram, YouTube, Facebook, Threads, and Twitter/X — content planning, scheduling, performance tracking, and audience growth.",
+      "sections": [
+        {
+          "title": "🔗 Platforms Managed",
+          "type": "platforms",
+          "items": [
+            {
+              "label": "Instagram",
+              "icon": "📸",
+              "url": "https://www.instagram.com/nexneuro.official/"
+            },
+            {
+              "label": "LinkedIn",
+              "icon": "💼",
+              "url": "https://www.linkedin.com/company/nexneuroit/"
+            },
+            {
+              "label": "YouTube",
+              "icon": "▶️",
+              "url": "https://www.youtube.com/@NexNeuro.Official"
+            },
+            {
+              "label": "Twitter/X",
+              "icon": "✖️",
+              "url": "https://x.com/nex_neuro"
+            },
+            {
+              "label": "Threads",
+              "icon": "🧵",
+              "url": "https://www.threads.com/@nexneuro.official"
+            },
+            {
+              "label": "Facebook",
+              "icon": "👥",
+              "url": "https://www.facebook.com/profile.php?id=61583295068718"
+            }
+          ]
+        },
+        {
+          "title": "📊 Planning & Tracking",
+          "type": "cards",
+          "items": [
+            {
+              "icon": "📅",
+              "label": "Social Media Content Calendar",
+              "url": "https://docs.google.com/spreadsheets/d/1EPOmhH4rs4RXy72QAUacX2aYlWe0tUPR-UQcy1v_3NI/edit?usp=sharing",
+              "desc": "Content planning, scheduling, and performance tracking across 6 platforms at NexNeuro."
+            }
+          ]
+        },
+        {
+          "title": "💡 What This Covers",
+          "type": "info",
+          "items": [
+            {
+              "text": "Multi-platform content scheduling and publishing across 6 channels"
+            },
+            {
+              "text": "Audience growth tracking and engagement analysis"
+            },
+            {
+              "text": "Platform-optimized content formats and timing strategies"
+            },
+            {
+              "text": "Campaign planning aligned with business goals"
+            },
+            {
+              "text": "Grew NexNeuro from 0 to 500+ followers across LinkedIn and Instagram"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "aiautomation",
+      "icon": "🤖",
+      "title": "AI & Automation",
+      "popupNote": "Applying AI tools and workflow automation to speed up content production, reduce manual effort, and maintain publishing consistency — without sacrificing quality or brand voice.",
+      "sections": [
+        {
+          "title": "⚡ Tools & Applications",
+          "type": "info",
+          "items": [
+            {
+              "text": "ChatGPT for content ideation, caption writing, and copy drafting"
+            },
+            {
+              "text": "Canva AI and Adobe Firefly for visual content creation"
+            },
+            {
+              "text": "Automated scheduling and publishing workflows"
+            },
+            {
+              "text": "AI-assisted research and trend analysis for content strategy"
+            },
+            {
+              "text": "Reusable content templates and automation triggers to reduce repetitive work"
+            }
+          ]
+        },
+        {
+          "title": "💡 How AI Is Applied",
+          "type": "info",
+          "items": [
+            {
+              "text": "Reducing time-to-publish by batching and automating routine content tasks"
+            },
+            {
+              "text": "Using AI drafts as starting points — refined for accuracy and brand voice"
+            },
+            {
+              "text": "Building structured systems that scale without proportional time increases"
+            },
+            {
+              "text": "Applying AI tools strategically to complement creative work, not replace it"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "digitalsolutions",
+      "icon": "🗂️",
+      "title": "Digital Solutions & Project Coordination",
+      "popupNote": "Building structured digital systems for managing workflows, coordinating teams, tracking deliverables, and ensuring consistent output across platforms and projects.",
+      "sections": [
+        {
+          "title": "📋 Workflow & Coordination Tools",
+          "type": "cards",
+          "items": [
+            {
+              "icon": "📅",
+              "label": "Social Media Content Tracker",
+              "url": "https://docs.google.com/spreadsheets/d/1EPOmhH4rs4RXy72QAUacX2aYlWe0tUPR-UQcy1v_3NI/edit?usp=sharing",
+              "desc": "Content planning, execution tracking, and multi-platform publishing workflow built at NexNeuro."
+            }
+          ]
+        },
+        {
+          "title": "💡 What This Covers",
+          "type": "info",
+          "items": [
+            {
+              "text": "Content calendar design and scheduling across multiple platforms"
+            },
+            {
+              "text": "Team workflow coordination with clear ownership and timelines"
+            },
+            {
+              "text": "Execution tracking and publishing consistency systems"
+            },
+            {
+              "text": "Intern and employee workflow management and task allocation"
+            },
+            {
+              "text": "Identifying digital bottlenecks and building practical solutions around them"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "aitools",
+      "icon": "🤖",
+      "title": "AI & Automation Tools",
+      "popupNote": "Hands-on use of AI tools to accelerate content workflows, generate creative assets, and automate repetitive tasks across social media and digital operations.",
+      "sections": [
+        {
+          "title": "⚡ Tools in Active Use",
+          "type": "info",
+          "items": [
+            {
+              "text": "ChatGPT — content ideation, captions, copy drafting, and research"
+            },
+            {
+              "text": "Canva AI — AI-assisted design, image generation, and visual asset creation"
+            },
+            {
+              "text": "Adobe Firefly — generative AI for image editing and creative exploration"
+            },
+            {
+              "text": "Scheduling tools for automated content publishing"
+            },
+            {
+              "text": "Workflow automation for routine digital tasks and content batching"
+            }
+          ]
+        },
+        {
+          "title": "💡 Application Approach",
+          "type": "info",
+          "items": [
+            {
+              "text": "AI is used to speed up — not replace — creative and strategic thinking"
+            },
+            {
+              "text": "Drafts are always reviewed, refined, and aligned with brand voice before publishing"
+            },
+            {
+              "text": "Automation handles repetitive steps so focus stays on strategy and quality"
+            },
+            {
+              "text": "Continuously exploring new AI tools relevant to social media and digital coordination"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "aftereffects",
+      "icon": "🎬",
+      "title": "After Effects",
+      "popupNote": "Motion design and compositing projects focused on cinematic edits, visual polish, and production-ready delivery for brand and content pipelines.",
+      "sections": [
+        {
+          "title": "🎬 After Effects Work",
+          "type": "cards",
+          "items": [
+            {
+              "icon": "📁",
+              "label": "After Effects Projects",
+              "url": "https://drive.google.com/drive/folders/19_OngUVIGl7MJMt_BlZHe9hvo5UgCIxi?usp=drive_link",
+              "desc": "After Effects project work and related files."
+            }
+          ]
+        },
+        {
+          "title": "💡 What This Includes",
+          "type": "info",
+          "items": [
+            {
+              "text": "Motion graphics and text animation workflows"
+            },
+            {
+              "text": "Compositing, cleanup, and stylized transitions"
+            },
+            {
+              "text": "Template-ready exports for faster publishing"
+            },
+            {
+              "text": "Platform-optimized versions for reels and shorts"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "premiere",
+      "icon": "🎞️",
+      "title": "Premiere Pro",
+      "popupNote": "Editing projects centered on storytelling, rhythm, sound balance, and audience-first long/short-form workflows across YouTube and social content.",
+      "sections": [
+        {
+          "title": "🎬 Premiere Pro Work",
+          "type": "cards",
+          "items": [
+            {
+              "icon": "📁",
+              "label": "Premiere Pro Projects",
+              "url": "https://drive.google.com/drive/folders/1UfFntB5lqOkmS1wgYBnhe6ALsSz3jxcD?usp=drive_link",
+              "desc": "Premiere Pro editing work and project files."
+            },
+            {
+              "icon": "▶️",
+              "label": "Edited Video — YouTube",
+              "url": "https://youtu.be/OQYz_zvHpGo?si=CybKOULQBNGiK-FO",
+              "desc": "Premiere Pro edit published on YouTube."
+            }
+          ]
+        },
+        {
+          "title": "💡 Editing Focus",
+          "type": "info",
+          "items": [
+            {
+              "text": "Story-first timeline structuring and pacing"
+            },
+            {
+              "text": "Dialogue, music, and ambience balancing"
+            },
+            {
+              "text": "Retention-focused hook and cut decisions"
+            },
+            {
+              "text": "Clean handoff with organized project files"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "vfxcompositing",
+      "icon": "🧪",
+      "title": "VFX & Compositing",
+      "popupNote": "Selected VFX reels and compositing showcases highlighting integration quality, shot continuity, and visual finishing.",
+      "sections": [
+        {
+          "title": "🎥 Related Work Links",
+          "type": "embedsSwitch",
+          "items": [
+            {
+              "label": "2025 Showreel - Compositing & VFX",
+              "src": "https://player.vimeo.com/video/1074872529?color=8a50ff&title=0&byline=0&portrait=0&autoplay=0&muted=0",
+              "url": "https://vimeo.com/1074872529",
+              "desc": "2025 showreel played inside this website."
+            },
+            {
+              "label": "Full Reel Breakdown",
+              "src": "https://vimeo.com/showcase/11765729/embed?autoplay=0&muted=0",
+              "url": "https://vimeo.com/showcase/11765729",
+              "desc": "Full reel breakdown playlist played inside this website."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "videoproduction",
+      "icon": "🎬",
+      "title": "Video Production & Editing",
+      "popupNote": "End-to-end production work from concept and edit structure to final platform-ready outputs and performance-friendly cuts.",
+      "sections": [
+        {
+          "title": "🎬 Edited Video Projects",
+          "type": "cards",
+          "items": [
+            {
+              "icon": "▶️",
+              "label": "MetaGolem - YouTube Channel",
+              "url": "https://www.youtube.com/@MetaGolem",
+              "desc": "Edited videos and created thumbnails for channel content."
+            },
+            {
+              "icon": "▶️",
+              "label": "AARYAN GAMING - YouTube Channel",
+              "url": "https://www.youtube.com/@AARYANGAMINGYT",
+              "desc": "Video editing work published on the Aaryan Gaming channel."
+            },
+            {
+              "icon": "▶️",
+              "label": "Raahul Is Live - YouTube Channel",
+              "url": "https://www.youtube.com/@raahulislive",
+              "desc": "Video production and editing work for Raahul Is Live content."
+            },
+            {
+              "icon": "🎞️",
+              "label": "Stop-motion Films",
+              "url": "https://www.youtube.com/watch?v=OBC0maENvbI&list=PLuNEzoAaIyTeEVc6_8ZgnLrMtYnIA_NNc&pp=gAQB",
+              "desc": "Stop-motion films playlist showcasing edited and composited work."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "shortformcontent",
+      "icon": "🎬",
+      "title": "Short-Form Content & Client Edits",
+      "popupNote": "High-impact short-form edits designed for watch-time, replay value, and stronger audience interaction.",
+      "sections": [
+        {
+          "title": "📢 Ad Creatives",
+          "type": "cards",
+          "items": [
+            {
+              "icon": "📢",
+              "label": "Creative Campaigns",
+              "url": "https://drive.google.com/drive/folders/1UlvjXphK7EB0RCeQS-ox-Ao8ceC3xwNh?usp=drive_link",
+              "desc": "Ad edits and campaign-ready short-form creatives."
+            }
+          ]
+        },
+        {
+          "title": "🎞️ Social Media Edits",
+          "type": "cards",
+          "items": [
+            {
+              "icon": "🎞️",
+              "label": "Beauty Parlor Shorts",
+              "url": "https://drive.google.com/drive/folders/1vkZMbFobz7ARTV6IEjdXGOb_M1YrKrTz?usp=sharing",
+              "desc": "Short-form social edits produced for multiple platforms and audiences."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "contentworkflow",
+      "icon": "📊",
+      "title": "Content Workflow Management",
+      "popupNote": "Workflow systems used to plan, schedule, monitor, and improve content execution across teams and platforms.",
+      "sections": [
+        {
+          "title": "📊 Workflow & Social Content Tracking",
+          "type": "cards",
+          "items": [
+            {
+              "icon": "📅",
+              "label": "Social Media Content",
+              "url": "https://docs.google.com/spreadsheets/d/1EPOmhH4rs4RXy72QAUacX2aYlWe0tUPR-UQcy1v_3NI/edit?usp=sharing",
+              "desc": "Content planning, scheduling, and execution tracking across multiple platforms."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "creativedirection",
+      "icon": "🎯",
+      "title": "Creative Direction",
+      "popupNote": "Creative strategy examples showing concept planning, visual tone setting, and campaign-level direction decisions.",
+      "sections": [
+        {
+          "title": "🎬 Creative Direction Projects",
+          "type": "cards",
+          "items": [
+            {
+              "icon": "📣",
+              "label": "Product Ad",
+              "url": "https://drive.google.com/drive/folders/1j2V3HtAZO86djl9yxrjf-0bfSbsAl-cY?usp=drive_link",
+              "desc": "Creative direction and execution for product advertisement content."
+            },
+            {
+              "icon": "▶️",
+              "label": "NexNeuro Official - YouTube",
+              "url": "https://www.youtube.com/@NexNeuro.Official",
+              "desc": "Creative direction work published on the official NexNeuro channel."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "podcastproduction",
+      "icon": "🎙️",
+      "title": "Podcast Production",
+      "popupNote": "Podcast production work including episode structuring, edit quality control, and final publishing-ready formats.",
+      "sections": [
+        {
+          "title": "🎙 Podcast Projects",
+          "type": "cards",
+          "items": [
+            {
+              "icon": "🎧",
+              "label": "BE THE ONE Podcast",
+              "url": "https://drive.google.com/drive/folders/19GBxSiXuI7F5IkJmhxkpOp8d2ubXz8Ez?usp=sharing",
+              "desc": "Podcast episodes, edits, and production files."
+            },
+            {
+              "icon": "▶️",
+              "label": "NexVaani Podcast — Full Playlist",
+              "url": "https://www.youtube.com/watch?v=hjAu6-ids84&list=PLRv-evu1z091nWDF8HSHyvcV-QnTF1Out",
+              "desc": "Complete NexVaani podcast series — all episodes on YouTube."
+            },
+            {
+              "icon": "🎬",
+              "label": "Podshorts",
+              "url": "https://drive.google.com/drive/folders/10m_nqVS0ANsJdfY4hb4JBHUUSQaJnMRb?usp=drive_link",
+              "desc": "Short-form podcast clips and podshorts cut for social media distribution."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "contentperformance",
+      "icon": "📈",
+      "title": "Content Performance & Workflow Optimization",
+      "popupNote": "Performance and publishing optimization using platform-level observations, consistency tracking, and iterative improvement.",
+      "sections": [
+        {
+          "title": "🔗 NexNeuro Social Platforms Managed",
+          "type": "platforms",
+          "items": [
+            {
+              "label": "Instagram",
+              "icon": "📸",
+              "url": "https://www.instagram.com/nexneuro.official/"
+            },
+            {
+              "label": "Twitter/X",
+              "icon": "✖️",
+              "url": "https://x.com/nex_neuro"
+            },
+            {
+              "label": "YouTube",
+              "icon": "▶️",
+              "url": "https://www.youtube.com/@NexNeuro.Official"
+            },
+            {
+              "label": "Threads",
+              "icon": "🧵",
+              "url": "https://www.threads.com/@nexneuro.official"
+            },
+            {
+              "label": "LinkedIn",
+              "icon": "💼",
+              "url": "https://www.linkedin.com/company/nexneuroit/"
+            },
+            {
+              "label": "Facebook",
+              "icon": "👥",
+              "url": "https://www.facebook.com/profile.php?id=61583295068718"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "narmadanews",
+      "icon": "📰",
+      "title": "Narmada News",
+      "popupNote": "News editing archive reflecting speed, turnaround discipline, and consistency in daily publishing workflows.",
+      "sections": [
+        {
+          "title": "📰 Edited Video Work",
+          "type": "cards",
+          "items": [
+            {
+              "icon": "🎬",
+              "label": "Narmada News Intro",
+              "url": "https://drive.google.com/drive/folders/1K25k1nk_TJbI0r4bH82pM-YRifbUZWNy?usp=sharing",
+              "desc": "Intro package and branded opener edited for Narmada News."
+            },
+            {
+              "icon": "▶️",
+              "label": "Narmada News Video Archive",
+              "url": "https://www.facebook.com/profile.php?id=61551657777793",
+              "desc": "All edited news videos and published clips on the official Narmada News page."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "nuke",
+      "icon": "🧪",
+      "title": "NUKE — VFX Compositing",
+      "popupNote": "Compositing showreel links featuring cleanup, keying, integration, and final shot finishing workflows with production-style node pipelines.",
+      "sections": [
+        {
+          "title": "🎥 VFX Showreel",
+          "type": "embeds",
+          "items": [
+            {
+              "label": "2025 Showreel - Compositing & VFX",
+              "url": "https://vimeo.com/1074872529",
+              "desc": "Compositing and VFX showreel."
+            },
+            {
+              "label": "Vimeo Showcase - Video 890605660",
+              "url": "https://vimeo.com/showcase/11765729?video=890605660",
+              "desc": "Showcase video link."
+            },
+            {
+              "label": "Vimeo Showcase - Video 676531700",
+              "url": "https://vimeo.com/showcase/11765729?video=676531700",
+              "desc": "Showcase video link."
+            }
+          ]
+        },
+        {
+          "title": "💡 Compositing Strengths",
+          "type": "info",
+          "items": [
+            {
+              "text": "Clean keying and edge treatment for difficult shots"
+            },
+            {
+              "text": "Layer integration with lighting and depth consistency"
+            },
+            {
+              "text": "Node-based workflow discipline for revisions"
+            },
+            {
+              "text": "Final-grade friendly outputs for finishing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "photoshop",
+      "icon": "🎨",
+      "title": "Photoshop",
+      "popupNote": "Design and image-editing projects covering visual assets, creative layouts, and content-ready graphics for social and brand communication.",
+      "sections": [
+        {
+          "title": "🎨 Photoshop Work",
+          "type": "cards",
+          "items": [
+            {
+              "icon": "📁",
+              "label": "Photoshop Projects",
+              "url": "https://drive.google.com/drive/folders/1KDJ0xU3rZlZ_9twjZgGfF16EIbwQY4o0?usp=drive_link",
+              "desc": "Photoshop design, edits, and asset files."
+            }
+          ]
+        },
+        {
+          "title": "💡 Design Scope",
+          "type": "info",
+          "items": [
+            {
+              "text": "Thumbnail and promotional key visual creation"
+            },
+            {
+              "text": "Photo cleanup, grading, and composition balancing"
+            },
+            {
+              "text": "Fast variant generation for campaign testing"
+            },
+            {
+              "text": "Asset export setup for multi-platform posting"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "sql",
+      "icon": "🧮",
+      "title": "SQL & Data",
+      "popupNote": "Data-focused examples demonstrating tracking structure, reporting logic, and insight-led content decisions for content and operations.",
+      "sections": [
+        {
+          "title": "📋 Live Work Sample",
+          "type": "cards",
+          "items": [
+            {
+              "icon": "📊",
+              "label": "Content Calendar & Tracking Sheet",
+              "url": "https://docs.google.com/spreadsheets/d/1EPOmhH4rs4RXy72QAUacX2aYlWe0tUPR-UQcy1v_3NI/edit?usp=sharing",
+              "desc": "Real-world content scheduling, publishing links, and execution tracking — built with structured data logic at NexNeuro"
+            }
+          ]
+        },
+        {
+          "title": "💡 Skills & Application",
+          "type": "info",
+          "items": [
+            {
+              "text": "Understanding of structured data and querying concepts"
+            },
+            {
+              "text": "Experience using data to track and improve content performance"
+            },
+            {
+              "text": "Applied insights for platform comparison and workflow decisions"
+            },
+            {
+              "text": "Focus on practical data usage rather than technical complexity"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "excel",
+      "icon": "📊",
+      "title": "Excel & Operations",
+      "popupNote": "Operational spreadsheets showing planning systems, publishing workflows, and execution tracking in day-to-day practice.",
+      "sections": [
+        {
+          "title": "📋 Live Spreadsheet",
+          "type": "cards",
+          "items": [
+            {
+              "icon": "📅",
+              "label": "Content Calendar & Publishing Tracker",
+              "url": "https://docs.google.com/spreadsheets/d/1EPOmhH4rs4RXy72QAUacX2aYlWe0tUPR-UQcy1v_3NI/edit?usp=sharing",
+              "desc": "Weekly content calendar, post schedule, publishing links, execution status and attendance tracking — NexNeuro"
+            }
+          ]
+        },
+        {
+          "title": "💡 How Excel Was Used at NexNeuro",
+          "type": "info",
+          "items": [
+            {
+              "text": "Weekly content calendars across 6 social platforms"
+            },
+            {
+              "text": "Post timing, publishing links, and execution status tracking"
+            },
+            {
+              "text": "Attendance & workflow sheets for interns and employees"
+            },
+            {
+              "text": "Work allocation coordinated with leadership"
+            },
+            {
+              "text": "Platform-wise performance tracking and decision-making support"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

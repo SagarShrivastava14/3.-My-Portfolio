@@ -1,0 +1,11 @@
+{
+  "list": [
+    { "icon": "🎞️", "name": "Premiere Pro", "desc": "Professional video editing, storytelling, pacing, and content optimization for YouTube and client projects.", "badge": "🎬 View Work", "modalKey": "premiere" },
+    { "icon": "🧪", "name": "NUKE", "desc": "Node-based compositing, rotoscoping, keying, and advanced VFX pipelines for production-level work.", "badge": "🎬 View Work", "modalKey": "nuke" },
+    { "icon": "🎨", "name": "Photoshop", "desc": "Image manipulation, thumbnail design, and visual asset creation for digital media and branding.", "badge": "🎬 View Work", "modalKey": "photoshop" },
+    { "icon": "🎬", "name": "After Effects", "desc": "High-end compositing, motion graphics, and cinematic VFX workflows for films and digital content.", "badge": "🎬 View Work", "modalKey": "aftereffects" },
+    { "icon": "📊", "name": "Excel & Spreadsheets", "desc": "Content calendars, publishing trackers, and workflow sheets used to manage and coordinate multi-platform content operations.", "badge": "📈 View Workflow", "modalKey": "excel" },
+    { "icon": "🧮", "name": "Data Analytics", "desc": "Developing SQL and data analysis skills for content performance reporting — currently building proficiency as part of ongoing professional development.", "badge": "🎓 In Development", "modalKey": "" },
+    { "icon": "🤖", "name": "AI & Automation Tools", "desc": "Applying ChatGPT, Canva AI, and workflow automation to speed up content production, ideation, and publishing across platforms.", "badge": "⚡ Active Use", "modalKey": "aitools" }
+  ]
+}

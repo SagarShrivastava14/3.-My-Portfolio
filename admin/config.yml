@@ -1,0 +1,202 @@
+# Decap CMS configuration.
+# Hosted on Vercel, so we use the GitHub backend with a small OAuth proxy
+# (the /api/auth + /api/callback serverless functions in this repo).
+backend:
+  name: github
+  repo: SagarShrivastava14/3.-My-Portfolio
+  branch: master
+  # IMPORTANT: set this to your live Vercel domain (where /api/auth lives).
+  base_url: https://sagarshrivastava14.vercel.app
+  auth_endpoint: api/auth
+
+# Where uploaded files (e.g. certificate PDFs) are stored / referenced from.
+media_folder: certificates
+public_folder: /certificates
+
+# Saves go straight to the branch (simple). Switch to "editorial_workflow"
+# later if you want a draft/review step before publishing.
+publish_mode: simple
+
+collections:
+  - name: content
+    label: Site Content
+    editor:
+      preview: false
+    files:
+      - file: content/hero.json
+        label: Hero Section
+        name: hero
+        fields:
+          - { label: Tag line, name: tag, widget: string }
+          - { label: Name, name: name, widget: string }
+          - label: Roles
+            name: roles
+            widget: list
+            field: { label: Role, name: role, widget: string }
+          - { label: Description, name: desc, widget: text }
+          - label: Primary Button
+            name: primaryBtn
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Link, name: href, widget: string }
+          - label: Ghost Button
+            name: ghostBtn
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Link, name: href, widget: string }
+          - label: Stats
+            name: stats
+            widget: list
+            fields:
+              - { label: Number, name: num, widget: string }
+              - { label: Suffix, name: suffix, widget: string, required: false }
+              - { label: Label, name: label, widget: string }
+
+      - file: content/about.json
+        label: About Section
+        name: about
+        fields:
+          - label: "Paragraphs (wrap text in **double asterisks** for bold)"
+            name: paragraphs
+            widget: list
+            field: { label: Paragraph, name: paragraph, widget: text }
+          - label: Info Cards
+            name: infoCards
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Subtitle, name: sub, widget: string }
+
+      - file: content/services.json
+        label: "Services (What I Do)"
+        name: services
+        fields:
+          - label: Services
+            name: list
+            widget: list
+            summary: "{{fields.num}} — {{fields.title}}"
+            fields:
+              - { label: Number, name: num, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: desc, widget: text }
+              - { label: "Popup key (which popup opens — must match a Popup's Key)", name: modalKey, widget: string, required: false }
+              - { label: "No popup (just display, no click action)", name: noAction, widget: boolean, default: false }
+
+      - file: content/skills.json
+        label: Skills
+        name: skills
+        fields:
+          - label: Skills
+            name: list
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Icon (emoji), name: icon, widget: string }
+              - { label: Name, name: name, widget: string }
+              - { label: Description, name: desc, widget: text }
+              - { label: Badge, name: badge, widget: string }
+              - { label: "Popup key (leave blank for no popup)", name: modalKey, widget: string, required: false }
+
+      - file: content/modals.json
+        label: Project & Skill Popups
+        name: modals
+        fields:
+          - label: Popups
+            name: modals
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Key (unique id referenced by Services/Skills)", name: key, widget: string }
+              - { label: Icon (emoji), name: icon, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Intro note, name: popupNote, widget: text, required: false }
+              - label: Sections
+                name: sections
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: Section title, name: title, widget: string }
+                  - label: "Type (controls which item fields are used)"
+                    name: type
+                    widget: select
+                    options: ["cards", "info", "platforms", "embeds", "embedsSwitch"]
+                    default: "cards"
+                  - label: Items
+                    name: items
+                    widget: list
+                    summary: "{{fields.label}}{{fields.text}}"
+                    fields:
+                      - { label: "Bullet text — for 'info' type", name: text, widget: string, required: false }
+                      - { label: "Icon (emoji)", name: icon, widget: string, required: false }
+                      - { label: "Label / name", name: label, widget: string, required: false }
+                      - { label: "Link URL", name: url, widget: string, required: false }
+                      - { label: "Description", name: desc, widget: text, required: false }
+                      - { label: "Embed src — for 'embedsSwitch' type", name: src, widget: string, required: false }
+                      - { label: "Embed URL — for 'embeds' type", name: embedUrl, widget: string, required: false }
+                      - { label: "Vimeo ID — for 'embeds' type", name: vimeoId, widget: string, required: false }
+
+      - file: content/experience.json
+        label: Experience & Education
+        name: experience
+        fields:
+          - label: Work Experience
+            name: work
+            widget: list
+            summary: "{{fields.role}} — {{fields.org}}"
+            fields:
+              - { label: Period, name: period, widget: string }
+              - { label: Role, name: role, widget: string }
+              - { label: Organization, name: org, widget: string }
+              - { label: "Org link URL (optional)", name: orgUrl, widget: string, required: false }
+              - { label: "Org link text (optional)", name: orgLinkText, widget: string, required: false }
+          - label: Education & Training
+            name: education
+            widget: list
+            summary: "{{fields.role}} — {{fields.org}}"
+            fields:
+              - { label: Period, name: period, widget: string }
+              - { label: Title, name: role, widget: string }
+              - { label: Organization, name: org, widget: string }
+
+      - file: content/certifications.json
+        label: Certifications
+        name: certifications
+        fields:
+          - label: Categories
+            name: categories
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Icon (emoji), name: icon, widget: string }
+              - { label: Category title, name: title, widget: string }
+              - label: Certificates
+                name: cards
+                widget: list
+                summary: "{{fields.name}}"
+                fields:
+                  - { label: Thumbnail (emoji), name: thumb, widget: string }
+                  - { label: Name, name: name, widget: string }
+                  - { label: Issuing organization, name: org, widget: string }
+                  - { label: PDF file, name: file, widget: file }
+                  - { label: "Rotate viewer 90° (for sideways PDFs)", name: rotate, widget: boolean, default: false }
+
+      - file: content/contact.json
+        label: Contact & Footer
+        name: contact
+        fields:
+          - { label: "Contact-form recipient email", name: formEmail, widget: string }
+          - label: Contact items
+            name: items
+            widget: list
+            summary: "{{fields.sub}}: {{fields.value}}"
+            fields:
+              - { label: Icon (emoji), name: icon, widget: string }
+              - { label: Value (text shown), name: value, widget: string }
+              - { label: Sub-label, name: sub, widget: string }
+              - { label: "Link (mailto: / tel: / https:) — optional", name: href, widget: string, required: false }
+              - { label: "Copy-to-clipboard text (phone only) — optional", name: copy, widget: string, required: false }
+          - { label: Footer logo text, name: footerLogo, widget: string }
+          - { label: Footer line, name: footerLine, widget: string }
